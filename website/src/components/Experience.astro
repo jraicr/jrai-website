@@ -1,0 +1,264 @@
+---
+import ExperienceEntry from "./ExperienceEntry.astro";
+import TechLabel from "./TechLabel.astro";
+import RelatedLink from "./RelatedLink.astro";
+import ViewFullLink from "./ViewFullLink.astro";
+---
+
+<section id="experience" class="content">
+    <div class="content-title">
+        <h2>Experience</h2>
+    </div>
+
+    <div>
+        <ol>
+            <!-- CTA -->
+            <ExperienceEntry
+                date="2023 - Present"
+                companyUrl="CTA"
+                companyName="CTA"
+                role="Intern as Software Engineer"
+            >
+                <p slot="experience-text" class="experience-text">
+                    Design, development, documentation, deployment and
+                    maintenance of scientific web applications that enable
+                    various technical and scientific specialists to make
+                    decisions and evaluate the LST1 instrument through data
+                    exploration.
+                </p>
+
+                <ul
+                    slot="tech-label"
+                    class="list-used-tech"
+                    aria-label="Technologies Used"
+                >
+                    <TechLabel text="Python" />
+                    <TechLabel text="Pandas" />
+                    <TechLabel text="Holoviz" />
+                    <TechLabel text="Javascript" />
+                    <TechLabel text="MongoDB" />
+                    <TechLabel text="Big Data" />
+                </ul>
+            </ExperienceEntry>
+
+            <!-- Codenite -->
+            <ExperienceEntry
+                date="2016 - Present"
+                companyUrl="Codenite"
+                companyName="Codenite Studios"
+                role="Founder & Solo Dev"
+            >
+                <p slot="experience-text" class="experience-text">
+                    Development and support of tailored solutions and tools for
+                    the Unity game engine.
+                </p>
+
+                <ul
+                    slot="related-links"
+                    class="lists-related-links"
+                    aria-label="Related links"
+                >
+                    <RelatedLink
+                        text="Trigger Puzzle System"
+                        href="https://assetstore.unity.com/packages/tools/utilities/trigger-puzzle-system-43851"
+                    />
+                </ul>
+
+                <ul
+                    slot="tech-label"
+                    class="list-used-tech"
+                    aria-label="Technologies Used"
+                >
+                    <TechLabel text="Unity" />
+                    <TechLabel text="C#" />
+                    <TechLabel text="Photon" />
+                    <TechLabel text="Firebase" />
+                </ul>
+            </ExperienceEntry>
+
+            <!-- UST -->
+            <ExperienceEntry
+                date="2009 - 2019"
+                companyUrl="UST 101"
+                companyName="UST 101"
+                role="Web & ArmA 3 Gameplay Developer"
+            >
+                <p slot="experience-text" class="experience-text">
+                    Founder and web developer of the most successfull tactical
+                    military simulation community in Spain based on ArmA 2 and
+                    ArmA 3. Set up of servers based on windows and later on
+                    Linux, from which game services and test environments for
+                    other developers were offered.
+                </p>
+
+                <p slot="experience-text" class="experience-text">
+                    Development of multiplayer tactical simulations where the
+                    players had to solve belic situation cooperatively based on
+                    true life events.
+                </p>
+
+                <ul
+                    slot="related-links"
+                    class="lists-related-links"
+                    aria-label="Related links"
+                >
+                    <RelatedLink
+                        text="Sagin Cooperative Dynamic Campaign"
+                        href="https://assetstore.unity.com/packages/tools/utilities/trigger-puzzle-system-43851"
+                    />
+                </ul>
+
+                <ul
+                    slot="tech-label"
+                    class="list-used-tech"
+                    aria-label="Technologies Used"
+                >
+                    <TechLabel text="Windows Server" />
+                    <TechLabel text="Linux" />
+                    <TechLabel text="ArmA Scripting Languaje" />
+                    <TechLabel text="Networking Programming" />
+                    <TechLabel text="Javascript" />
+                    <TechLabel text="PHP" />
+                    <TechLabel text="vBulletin" />
+                    <TechLabel text="CSS" />
+                    <TechLabel text="HTML" />
+                </ul>
+            </ExperienceEntry>
+
+            <!-- Pycseca -->
+            <ExperienceEntry
+                date="2016 - 2019"
+                companyUrl="Pycseca"
+                companyName="PYCSECA"
+                role="System Administrator & Technical Support Manager"
+            >
+                <p slot="experience-text" class="experience-text">
+                    Administration of the necessary services of an alarm
+                    monitoring center in Windows and Debian based systems
+                </p>
+
+                <p slot="experience-text" class="experience-text">
+                    Creation and programming of web and Excel-based tools to
+                    facilitate management and invoicing tasks.
+                </p>
+
+                <ul
+                    slot="tech-label"
+                    class="list-used-tech"
+                    aria-label="Technologies Used"
+                >
+                    <TechLabel text="Windows" />
+                    <TechLabel text="Linux" />
+                    <TechLabel text="Shell Scripting" />
+                    <TechLabel text="Javascript" />
+                    <TechLabel text="Excel VBA" />
+                </ul>
+            </ExperienceEntry>
+        </ol>
+        <ViewFullLink partialText="View Full " lastWord="Résumé"></ViewFullLink>
+    </div>
+
+    <style>
+        .list-used-tech {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .experience-text {
+            line-height: 1.5;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .lists-related-links {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .full-cv-link {
+            line-height: 1;
+            padding-top: 1.25rem;
+            font-weight: 600;
+            align-items: center;
+            display: inline-flex;
+        }
+
+        .view-full-partial-text {
+            padding-bottom: 1px;
+            transition-property:
+                color,
+                background-color,
+                border-color,
+                text-decoration-color,
+                fill,
+                stroke,
+                opacity,
+                box-shadow,
+                transform,
+                filter,
+                backdrop-filter,
+                -webkit-backdrop-filter;
+
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 0.15s;
+            border-color: transparent;
+            border-bottom-width: 1px;
+        }
+
+        .resume-partial-text-container {
+            white-space: nowrap;
+        }
+
+        .resume-partial-text {
+            padding-bottom: 1px;
+            transition-property:
+                color,
+                background-color,
+                border-color,
+                text-decoration-color,
+                fill,
+                stroke,
+                opacity,
+                box-shadow,
+                transform,
+                filter,
+                backdrop-filter,
+                -webkit-backdrop-filter;
+
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 0.15s;
+            border-color: transparent;
+            border-bottom-width: 1px;
+        }
+
+        .arrow {
+            transition-property: transform;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 0.15s;
+            transform: translate(0, -1px)
+                rotate(0) skewX(0)
+                skewY(0) scaleX(0.75)
+                scaleY(0.75);
+
+            flex-shrink: 0;
+          
+            display: inline-block;
+            margin-left: 0.25rem;
+            vertical-align: middle;
+        }
+
+        .full-cv-link:hover .view-full-partial-text, .full-cv-link:hover .resume-partial-text {
+            border-color: var(--hover-link-color);
+        }
+
+        .full-cv-link:hover .arrow {
+            transform: translate(0.5rem, -1px)
+                rotate(0) skewX(0)
+                skewY(0) scaleX(0.75)
+                scaleY(0.75);
+            
+        }
+    </style>
+</section>

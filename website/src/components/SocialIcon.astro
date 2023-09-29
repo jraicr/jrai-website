@@ -1,0 +1,45 @@
+---
+interface Props {
+    href: string;
+    srText: string;
+    viewBox: string;
+}
+
+const { href, srText, viewBox } = Astro.props;
+---
+
+<li class="social-icon">
+    <a href={href} target="_blank" rel="noreferrer">
+        <span class="sr-only">{srText}</span>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox={viewBox}
+            fill="currentColor"
+            aria-hidden="true"
+        >
+            <slot />
+        </svg>
+    </a>
+</li>
+
+<style>
+    .social-icon {
+        margin-right: 1.25rem;
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+
+    .social-icon > a {
+        display: block;
+        color: var(--text-color);
+    }
+
+    .social-icon:hover > a {
+        color: var(--link-color);
+    }
+
+    .social-icon > a > svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+</style>

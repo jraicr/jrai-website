@@ -1,0 +1,75 @@
+---
+import GithubIcon from "./social-icons/github.astro";
+import TwitterIcon from "./social-icons/twitter.astro";
+import LinkedinIcon from "./social-icons/linkedin.astro";
+
+interface Props {
+    title: string;
+    subtitle: string;
+    tagline: string;
+    githubUser: string;
+    twitterUser: string;
+    linkedinUser: string;
+}
+
+const { title, subtitle, tagline, githubUser, twitterUser, linkedinUser } =
+    Astro.props;
+---
+
+<header>
+    <div>
+        <p class="greeting-line">Hi There!</p>
+        <h1><a href="/">I am <span class="highlight"> {title}</span></a></h1>
+        <h2>{subtitle}</h2>
+        <p class="tagline">{tagline}</p>
+
+        <!-- TODO: Navigator for wide screens -->
+        <nav></nav>
+    </div>
+
+    <!-- SOCIAL ICONS -->
+    <ul class="social-icons-list">
+        <GithubIcon username={githubUser} />
+        <TwitterIcon username={twitterUser} />
+        <LinkedinIcon username={linkedinUser} />
+    </ul>
+</header>
+
+<style>
+    h1 {
+        font-size: 3.25rem;
+        line-height: 3.5rem;
+        font-weight: 900;
+    }
+
+    h2 {
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 1.75rem;
+        margin-top: 0.75rem;
+    }
+
+    .tagline {
+        max-width: 20rem;
+        line-height: 1.5;
+    }
+
+    .greeting-line {
+        font-size: 1.125rem;
+        font-weight: 600;
+        line-height: 1.5;
+        color: var(--main-headline);
+        margin-bottom: 0.85rem;
+    }
+
+    .highlight {
+        color: hsl(46, 100%, 50%);
+    }
+
+    .social-icons-list {
+        display: flex;
+        align-items: center;
+        margin-left: 0.25rem;
+        margin-top: 2rem;
+    }
+</style>
