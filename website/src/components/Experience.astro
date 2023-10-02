@@ -17,7 +17,8 @@ import ViewFullLink from "./ViewFullLink.astro";
                 date="2023 - Present"
                 companyUrl="CTA"
                 companyName="CTA"
-                role="Intern as Software Engineer"
+                role="Freelancer as Software Engineer"
+                oldRole = "Intern as Software Engineer"
             >
                 <p slot="experience-text" class="experience-text">
                     Design, development, documentation, deployment and
@@ -35,7 +36,7 @@ import ViewFullLink from "./ViewFullLink.astro";
                     <TechLabel text="Python" />
                     <TechLabel text="Pandas" />
                     <TechLabel text="Holoviz" />
-                    <TechLabel text="Javascript" />
+                    <TechLabel text="JavaScript" />
                     <TechLabel text="MongoDB" />
                     <TechLabel text="Big Data" />
                 </ul>
@@ -59,6 +60,7 @@ import ViewFullLink from "./ViewFullLink.astro";
                     aria-label="Related links"
                 >
                     <RelatedLink
+                        iconType="clip"
                         text="Trigger Puzzle System"
                         href="https://assetstore.unity.com/packages/tools/utilities/trigger-puzzle-system-43851"
                     />
@@ -103,7 +105,8 @@ import ViewFullLink from "./ViewFullLink.astro";
                     aria-label="Related links"
                 >
                     <RelatedLink
-                        text="Sagin Cooperative Dynamic Campaign"
+                        iconType="clip"
+                        text="Sangīn Cooperative Dynamic Campaign"
                         href="https://assetstore.unity.com/packages/tools/utilities/trigger-puzzle-system-43851"
                     />
                 </ul>
@@ -115,9 +118,9 @@ import ViewFullLink from "./ViewFullLink.astro";
                 >
                     <TechLabel text="Windows Server" />
                     <TechLabel text="Linux" />
-                    <TechLabel text="ArmA Scripting Languaje" />
+                    <TechLabel text="ArmA Scripting Language" />
                     <TechLabel text="Networking Programming" />
-                    <TechLabel text="Javascript" />
+                    <TechLabel text="JavaScript" />
                     <TechLabel text="PHP" />
                     <TechLabel text="vBulletin" />
                     <TechLabel text="CSS" />
@@ -150,21 +153,15 @@ import ViewFullLink from "./ViewFullLink.astro";
                     <TechLabel text="Windows" />
                     <TechLabel text="Linux" />
                     <TechLabel text="Shell Scripting" />
-                    <TechLabel text="Javascript" />
+                    <TechLabel text="JavaScript" />
                     <TechLabel text="Excel VBA" />
                 </ul>
             </ExperienceEntry>
         </ol>
-        <ViewFullLink partialText="View Full " lastWord="Résumé"></ViewFullLink>
+        <ViewFullLink partialText="View Full " lastWord="Résumé" />
     </div>
 
     <style>
-        .list-used-tech {
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: 0.5rem;
-        }
-
         .experience-text {
             line-height: 1.5;
             font-size: 0.875rem;
@@ -237,28 +234,24 @@ import ViewFullLink from "./ViewFullLink.astro";
             transition-property: transform;
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             transition-duration: 0.15s;
-            transform: translate(0, -1px)
-                rotate(0) skewX(0)
-                skewY(0) scaleX(0.75)
-                scaleY(0.75);
+            transform: translate(0, -1px) rotate(0) skewX(0) skewY(0)
+                scaleX(0.75) scaleY(0.75);
 
             flex-shrink: 0;
-          
+
             display: inline-block;
             margin-left: 0.25rem;
             vertical-align: middle;
         }
 
-        .full-cv-link:hover .view-full-partial-text, .full-cv-link:hover .resume-partial-text {
+        .full-cv-link:hover .view-full-partial-text,
+        .full-cv-link:hover .resume-partial-text {
             border-color: var(--hover-link-color);
         }
 
         .full-cv-link:hover .arrow {
-            transform: translate(0.5rem, -1px)
-                rotate(0) skewX(0)
-                skewY(0) scaleX(0.75)
-                scaleY(0.75);
-            
+            transform: translate(0.5rem, -1px) rotate(0) skewX(0) skewY(0)
+                scaleX(0.75) scaleY(0.75);
         }
     </style>
 </section>

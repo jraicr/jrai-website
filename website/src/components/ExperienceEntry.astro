@@ -1,20 +1,21 @@
 ---
 interface Props {
     date: string;
-    companyUrl: string;
     companyName: string;
+    companyUrl: string;
     role: string;
+    oldRole?: string;
 }
 
-const { date, companyUrl, companyName, role } = Astro.props;
+const { date, companyUrl, companyName, role, oldRole } = Astro.props;
 ---
 
-<li class="experience-element">
+<li class="mb-12">
     <div class="experience-container">
         <header class="experience-header" aria-label={date}>
             {date}
         </header>
-        <div class="experience-body">
+        <div class="experience-entry">
             <h3 class="experience-heading-text">
                 <div>
                     <a href={companyUrl} class="experience-title-link">
@@ -23,8 +24,9 @@ const { date, companyUrl, companyName, role } = Astro.props;
                             <span class="experience-site">{companyName}</span>
                         </span>
                     </a>
-                    <!-- <div class="experience-role"></div>
-                    <a class="experience-role"></a> -->
+                    <div class="old-role">
+                        <div>{oldRole}</div>
+                    </div>
                 </div>
             </h3>
 
@@ -40,10 +42,6 @@ const { date, companyUrl, companyName, role } = Astro.props;
 </li>
 
 <style>
-    .experience-element {
-        margin-bottom: 3rem;
-    }
-
     .experience-container {
         position: relative;
         display: grid;
@@ -69,7 +67,7 @@ const { date, companyUrl, companyName, role } = Astro.props;
         margin-top: 0.25rem;
     }
 
-    .experience-body {
+    .experience-entry {
         z-index: 10;
     }
 
@@ -93,5 +91,9 @@ const { date, companyUrl, companyName, role } = Astro.props;
 
     .experience-site {
         display: inline-block;
+    }
+
+    .old-role {
+        color: var(--secondary-headline-color);
     }
 </style>

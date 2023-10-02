@@ -1,0 +1,112 @@
+---
+import ProjectEntry from "./ProjectEntry.astro";
+import RelatedLink from "./RelatedLink.astro";
+import TechLabel from "./TechLabel.astro";
+import ViewFullLink from "./ViewFullLink.astro";
+import PlaceholderImage from "../images/placeholder.png";
+import ProjectGIPLImage from "../images/project-gipl.webp";
+import ProjectTopTwitchImage from "../images/project-top-Twitch.webp";
+---
+
+<section id="projects" class="content">
+    <div class="content-title">
+        <h2>Projects</h2>
+    </div>
+
+    <div>
+        <ul>
+            <!-- GIPL -->
+            <ProjectEntry name="GIPL" image={ProjectGIPLImage.src}>
+                <p slot="desc" class="project-text">
+                    Web app to manage incidents in computer classrooms.
+                    Configuration of users, roles and privileges. Inventory
+                    management and classroom equipment, management of students,
+                    computer equipment, incidents and monitoring of their
+                    status.
+                </p>
+
+                <ul
+                    slot="related-links"
+                    class="lists-related-links"
+                    aria-label="Related links"
+                >
+                    <RelatedLink
+                        iconType="git"
+                        text="Github"
+                        href="https://assetstore.unity.com/packages/tools/utilities/trigger-puzzle-system-43851"
+                    />
+                </ul>
+
+                <ul
+                    slot="tech-label"
+                    class="list-used-tech"
+                    aria-label="Technologies Used"
+                >
+                    <TechLabel text="PHP" />
+                    <TechLabel text="Laravel" />
+                    <TechLabel text="AdminLTE" />
+                    <TechLabel text="Bootstrap" />
+                    <TechLabel text="MariaDB" />
+                    <TechLabel text="Docker" />
+                </ul>
+            </ProjectEntry>
+
+            <!-- Top 100 Twitch Hispano -->
+            <ProjectEntry name="Top 100 Twitch Hispano" image={ProjectTopTwitchImage.src}>
+                <p slot="desc" class="project-text">
+                    Lists the 100 Spanish-speaking channels with the most
+                    viewers at the moment. Select the channel to load its live
+                    broadcast, filter by channel name and add your prefered ones
+                    to you favourite list.
+                </p>
+
+                <ul
+                    slot="related-links"
+                    class="lists-related-links"
+                    aria-label="Related links"
+                >
+                    <RelatedLink
+                        iconType="git"
+                        text="Github"
+                        href="https://assetstore.unity.com/packages/tools/utilities/trigger-puzzle-system-43851"
+                    />
+                </ul>
+
+                <ul
+                    slot="tech-label"
+                    class="list-used-tech"
+                    aria-label="Technologies Used"
+                >
+                    <TechLabel text="JavaScript" />
+                    <TechLabel text="CSS" />
+                    <TechLabel text="Twitch API" />
+                </ul>
+            </ProjectEntry>
+        </ul>
+    </div>
+</section>
+
+<style>
+    .project-title-link {
+        color: var(--main-headline);
+        line-height: 1.25;
+        font-weight: 500;
+        font-size: 1rem;
+        align-items: baseline;
+        display: inline-flex;
+        text-decoration: inherit;
+    }
+
+    .project-text {
+        line-height: 1.5;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+    }
+
+    .project-image {
+        color: transparent;
+        border-color: var(--image-border);
+        border-width: 2px;
+        border-radius: 0.25rem;
+    }
+</style>
