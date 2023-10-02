@@ -6,6 +6,7 @@ import ViewFullLink from "./ViewFullLink.astro";
 import PlaceholderImage from "../images/placeholder.png";
 import ProjectGIPLImage from "../images/project-gipl.webp";
 import ProjectTopTwitchImage from "../images/project-top-Twitch.webp";
+import ProjectDockerDevTmage from "../images/project-docker-dev.webp";
 ---
 
 <section id="projects" class="content">
@@ -52,7 +53,10 @@ import ProjectTopTwitchImage from "../images/project-top-Twitch.webp";
             </ProjectEntry>
 
             <!-- Top 100 Twitch Hispano -->
-            <ProjectEntry name="Top 100 Twitch Hispano" image={ProjectTopTwitchImage.src}>
+            <ProjectEntry
+                name="Top 100 Twitch Hispano"
+                image={ProjectTopTwitchImage.src}
+            >
                 <p slot="desc" class="project-text">
                     Lists the 100 Spanish-speaking channels with the most
                     viewers at the moment. Select the channel to load its live
@@ -80,6 +84,56 @@ import ProjectTopTwitchImage from "../images/project-top-Twitch.webp";
                     <TechLabel text="JavaScript" />
                     <TechLabel text="CSS" />
                     <TechLabel text="Twitch API" />
+                </ul>
+            </ProjectEntry>
+
+            <!-- Docker Dev Templates -->
+            <ProjectEntry
+                name="Docker Dev Templates"
+                image={ProjectDockerDevTmage.src}
+            >
+                <p slot="desc" class="project-text">
+                    Github organization that has a series of repositories that
+                    represent rich templates for deploying development
+                    environments using Docker containers. They are oriented to
+                    web development with frameworks and libraries such as Vue,
+                    Astro, Laravel and the like.
+                </p>
+
+                <ul
+                    slot="related-links"
+                    class="lists-related-links"
+                    aria-label="Related links"
+                >
+                    <RelatedLink
+                        iconType="git"
+                        text="Astro"
+                        href="https://github.com/docker-dev-templates/docker-astro-template"
+                    />
+                    <RelatedLink
+                        iconType="git"
+                        text="LEMP Laravel"
+                        href="https://github.com/docker-dev-templates/docker-lemp-laravel"
+                    />
+                    <RelatedLink
+                        iconType="git"
+                        text="LEMP Vue.js & Laravel"
+                        href="https://github.com/docker-dev-templates/docker-lemp-laravel-vue"
+                    />
+                </ul>
+
+                <ul
+                    slot="tech-label"
+                    class="list-used-tech"
+                    aria-label="Technologies Used"
+                >
+                    <TechLabel text="Docker" />
+                    <TechLabel text="Bash" />
+                    <TechLabel text="Nginx" />
+                    <TechLabel text="MariaDB" />
+                    <TechLabel text="Astro" />
+                    <TechLabel text="Vue" />
+                    <TechLabel text="Laravel" />
                 </ul>
             </ProjectEntry>
         </ul>
