@@ -6,6 +6,7 @@ services:
     image: node:current-alpine
     user: ${UID}:${UID}
     working_dir: /app
+    restart: on-failure
     ports:
       - ${WEBAPP_EXTERNAL_PORT}:${WEBAPP_INTERNAL_PORT}
     volumes:
