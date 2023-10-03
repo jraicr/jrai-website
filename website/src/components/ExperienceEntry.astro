@@ -96,4 +96,19 @@ const { date, companyUrl, companyName, role, oldRole } = Astro.props;
     .old-role {
         color: var(--secondary-headline-color);
     }
+
+    @media (min-width: 640px) {
+        .experience-container {
+            grid-template-columns: repeat(8, minmax(0, 1fr));
+            gap: 2rem;
+        }
+
+        .experience-header {
+            grid-column: span 2 / span 2;
+        }
+
+        .experience-entry {
+            grid-column: span 6 / span 6;
+        }
+    }
 </style>

@@ -8,20 +8,21 @@ import Projects from "../../components/Projects.astro";
 
 <BaseLayout title="J. Rai" lang="en">
     <div class="main-wrapper">
-        <Header
-            title="J. Rai"
-            subtitle="Full Stack & Game Developer"
-            tagline="I build interactive multimedia experiences focused on the user."
-            githubUser="jraicr"
-            twitterUser="JRaiDev"
-            linkedinUser="SIN CONFIGURAR"
-        />
+        <div class="main-flex-container">
+            <Header
+                title="J. Rai"
+                subtitle="Full Stack & Game Developer"
+                tagline="I build interactive multimedia experiences focused on the user."
+                githubUser="jraicr"
+                twitterUser="JRaiDev"
+                linkedinUser="SIN CONFIGURAR"
+            />
 
-        <main id="content-container" class="content-wrapper">
-            <About/>
-            <Experience/>
-            <Projects/>
-            
-        </main>
+            <main id="content-container" class="content-wrapper">
+                <About />
+                <Experience />
+                <Projects />
+            </main>
+        </div>
     </div>
 </BaseLayout>

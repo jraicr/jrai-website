@@ -77,4 +77,24 @@ const { name, image } = Astro.props;
         border-width: 2px;
         border-radius: 0.25rem;
     }
+
+    @media (min-width: 640px) {
+        .project-container {
+            gap: 2rem;
+            grid-template-columns: repeat(8, minmax(0, 1fr));
+        }
+
+        .project-entry {
+            grid-column: span 6 / span 6;
+            order: 2;
+        }
+
+        .project-image {
+            transform: translate(0, 0.25rem) rotate(0) skewX(0) skewY(0)
+                scaleX(1) scaleY(1);
+
+            grid-column: span 2 / span 2;
+            order: 1;
+        }
+    }
 </style>

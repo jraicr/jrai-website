@@ -31,7 +31,8 @@ const { title, lang } = Astro.props;
 </html>
 <style is:global>
     :root {
-        --main-bg-color: hsl(0, 0%, 7%);
+        /* --main-bg-color: hsl(0, 0%, 7%); */
+        --main-bg-color: hsl(222, 47%, 11%);
         --main-headline: hsl(0, 0%, 100%);
         --secondary-headline-color: hsl(245, 25%, 60%);
         --text-color: hsl(245, 20%, 76%);
@@ -118,16 +119,22 @@ const { title, lang } = Astro.props;
     }
 
     .main-wrapper {
+        max-width: 1280px;
+        min-height: 100vh;
+        margin-left: auto;
+        margin-right: auto;
+
         padding-top: 3rem;
         padding-bottom: 3rem;
         padding-left: 1.5rem;
         padding-right: 1.5rem;
+
         background: radial-gradient(
             circle at 0% 0%,
             hsla(251, 100%, 35%, 0.333) 11%,
             rgba(255, 255, 255, 0) 75%
         );
-        background-attachment: fixed;
+        background-attachment: fixed;        
     }
 
     .content-wrapper {
@@ -140,8 +147,6 @@ const { title, lang } = Astro.props;
     }
 
     .content-title {
-        /* background-color: rgba(15,23,42,.75); */
-        /* background-color: var(--main-bg-color); */
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         position: sticky;
@@ -202,5 +207,70 @@ const { title, lang } = Astro.props;
 
     .gap-4 {
         gap: 1rem;
+    }
+
+    /* Just margins */
+    @media (min-width: 768px) {
+        .main-wrapper {
+            padding-top: 1rem;
+            padding-bottom: 5rem;
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+
+        .content-title {
+            padding-left: 3rem;
+            padding-right: 3rem;
+            margin-left: -3rem;
+            margin-right: -3rem;
+        }
+
+        .content {
+            scroll-margin-top: 6rem;
+            margin-bottom: 9rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .main-wrapper {
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-left: 6rem;
+            padding-right: 6rem;
+        }
+
+        .main-flex-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .content-wrapper {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            width: 50%;
+        }
+
+        .content-title {
+            opacity: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-left: 0;
+            padding-right: 0;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            top: auto;
+            position: relative;
+        }
+
+        .content-title > h2 {
+            position: absolute;
+        }
+
+        .content {
+            scroll-margin-top: 6rem;
+            margin-bottom: 9rem;
+        }
     }
 </style>
