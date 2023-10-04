@@ -160,105 +160,105 @@ import ViewFullLink from "./ViewFullLink.astro";
         </ol>
         <ViewFullLink partialText="View Full " lastWord="Résumé" />
     </div>
-
-    <style>
-        .experience-text {
-            line-height: 1.5;
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-        }
-
-        .full-cv-link {
-            line-height: 1;
-            padding-top: 1.25rem;
-            font-weight: 600;
-            align-items: center;
-            display: inline-flex;
-        }
-
-        .view-full-partial-text {
-            padding-bottom: 1px;
-            transition-property:
-                color,
-                background-color,
-                border-color,
-                text-decoration-color,
-                fill,
-                stroke,
-                opacity,
-                box-shadow,
-                transform,
-                filter,
-                backdrop-filter,
-                -webkit-backdrop-filter;
-
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 0.15s;
-            border-color: transparent;
-            border-bottom-width: 1px;
-        }
-
-        .resume-partial-text-container {
-            white-space: nowrap;
-        }
-
-        .resume-partial-text {
-            padding-bottom: 1px;
-            transition-property:
-                color,
-                background-color,
-                border-color,
-                text-decoration-color,
-                fill,
-                stroke,
-                opacity,
-                box-shadow,
-                transform,
-                filter,
-                backdrop-filter,
-                -webkit-backdrop-filter;
-
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 0.15s;
-            border-color: transparent;
-            border-bottom-width: 1px;
-        }
-
-        .arrow {
-            transition-property: transform;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 0.15s;
-            transform: translate(0, -1px) rotate(0) skewX(0) skewY(0)
-                scaleX(0.75) scaleY(0.75);
-
-            flex-shrink: 0;
-
-            display: inline-block;
-            margin-left: 0.25rem;
-            vertical-align: middle;
-        }
-
-        .full-cv-link:hover .view-full-partial-text,
-        .full-cv-link:hover .resume-partial-text {
-            border-color: var(--hover-link-color);
-        }
-
-        .full-cv-link:hover .arrow {
-            transform: translate(0.5rem, -1px) rotate(0) skewX(0) skewY(0)
-                scaleX(0.75) scaleY(0.75);
-        }
-
-        @media screen (max-width: 639px) {
-        }
-
-        @media screen (min-width: 640px) and (max-width: 1023px) {
-        }
-
-        /* Just margins */
-        @media screen(min-width: 768px) and (max-width: 1023px) {
-        }
-
-        @media screen (min-width: 1024px) {
-        }
-    </style>
 </section>
+
+<style>
+    .experience-text {
+        line-height: 1.5;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+    }
+
+    .full-cv-link {
+        line-height: 1;
+        padding-top: 1.25rem;
+        font-weight: 600;
+        align-items: center;
+        display: inline-flex;
+    }
+
+    .view-full-partial-text {
+        padding-bottom: 1px;
+        transition-property:
+            color,
+            background-color,
+            border-color,
+            text-decoration-color,
+            fill,
+            stroke,
+            opacity,
+            box-shadow,
+            transform,
+            filter,
+            backdrop-filter,
+            -webkit-backdrop-filter;
+
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 0.15s;
+        border-color: transparent;
+        border-bottom-width: 1px;
+    }
+
+    .resume-partial-text-container {
+        white-space: nowrap;
+    }
+
+    .resume-partial-text {
+        padding-bottom: 1px;
+        transition-property:
+            color,
+            background-color,
+            border-color,
+            text-decoration-color,
+            fill,
+            stroke,
+            opacity,
+            box-shadow,
+            transform,
+            filter,
+            backdrop-filter,
+            -webkit-backdrop-filter;
+
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 0.15s;
+        border-color: transparent;
+        border-bottom-width: 1px;
+    }
+
+    .arrow {
+        transition-property: transform;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 0.15s;
+        transform: translate(0, -1px) rotate(0) skewX(0) skewY(0) scaleX(0.75)
+            scaleY(0.75);
+
+        flex-shrink: 0;
+
+        display: inline-block;
+        margin-left: 0.25rem;
+        vertical-align: middle;
+    }
+
+    .full-cv-link:hover .view-full-partial-text,
+    .full-cv-link:hover .resume-partial-text {
+        border-color: var(--hover-link-color);
+    }
+
+    .full-cv-link:hover .arrow {
+        transform: translate(0.5rem, -1px) rotate(0) skewX(0) skewY(0)
+            scaleX(0.75) scaleY(0.75);
+    }
+
+    @media screen (max-width: 639px) {
+    }
+
+    @media screen (min-width: 640px) and (max-width: 1023px) {
+    }
+
+    /* Just margins */
+    @media screen(min-width: 768px) and (max-width: 1023px) {
+    }
+
+    @media screen (min-width: 1024px) {
+    }
+</style>
