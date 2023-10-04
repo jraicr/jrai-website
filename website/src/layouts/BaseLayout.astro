@@ -217,7 +217,7 @@ const { title, lang } = Astro.props;
     .content-title {
         -webkit-backdrop-filter: blur(8px);
         backdrop-filter: blur(8px);
-        
+
         position: sticky;
         top: 0;
         z-index: 20;
@@ -351,6 +351,10 @@ const { title, lang } = Astro.props;
                 0 0 #0000,
                 inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
             background-color: var(--hover-content-large-screen);
+        }
+
+        .content-list:hover .content-container {
+            opacity: 0.5;
         }
 
         .main-flex-container {
