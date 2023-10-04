@@ -11,7 +11,8 @@ const { date, companyUrl, companyName, role, oldRole } = Astro.props;
 ---
 
 <li class="mb-12">
-    <div class="experience-container">
+    <div class="content-container">
+        <div class="content-hover-container"></div>
         <header class="experience-header" aria-label={date}>
             {date}
         </header>
@@ -19,6 +20,7 @@ const { date, companyUrl, companyName, role, oldRole } = Astro.props;
             <h3 class="experience-heading-text">
                 <div>
                     <a href={companyUrl} class="experience-title-link">
+                        <span class="content-link-container"></span>
                         <span
                             >{role} ·
                             <span class="experience-site">{companyName}</span>
@@ -98,11 +100,6 @@ const { date, companyUrl, companyName, role, oldRole } = Astro.props;
     }
 
     @media (min-width: 640px) {
-        .experience-container {
-            grid-template-columns: repeat(8, minmax(0, 1fr));
-            gap: 2rem;
-        }
-
         .experience-header {
             grid-column: span 2 / span 2;
         }

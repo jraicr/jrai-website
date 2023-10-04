@@ -12,12 +12,16 @@ const { name, image } = Astro.props;
 ---
 
 <li class="mb-12">
-    <div class="project-container gap-4">
+    <div class="content-container gap-4">
+        <div class="content-hover-container"></div>
         <div class="project-entry">
             <h3 class="project-heading-text">
-                <a href="link" class="project-title-link">{name}</a>
+                <a href="link" class="project-title-link">
+                    <span class="content-link-container"></span>
+                    {name}
+                </a>
+                    <slot name="desc" />
             </h3>
-            <slot name="desc" />
             <slot name="related-links" />
             <slot name="tech-label" />
         </div>
@@ -32,17 +36,6 @@ const { name, image } = Astro.props;
 </li>
 
 <style>
-    .project-container {
-        position: relative;
-        display: grid;
-
-        padding-bottom: 0.25rem;
-
-        transition-property: all;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 0.15s;
-    }
-
     .project-entry {
         z-index: 10;
     }
@@ -79,11 +72,6 @@ const { name, image } = Astro.props;
     }
 
     @media (min-width: 640px) {
-        .project-container {
-            gap: 2rem;
-            grid-template-columns: repeat(8, minmax(0, 1fr));
-        }
-
         .project-entry {
             grid-column: span 6 / span 6;
             order: 2;

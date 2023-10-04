@@ -40,6 +40,7 @@ const { title, lang } = Astro.props;
         --text-label-color: hsl(46, 100%, 50%);
         --link-color: hsl(214, 32%, 91%);
         --hover-link-color: hsl(46, 100%, 50%);
+        --hover-content-large-screen: rgba(175, 172, 205, 0.1);
         --label-bg-color: hsl(46, 100%, 50%, 0.1);
         --image-border: hsl(245, 25%, 74%, 0.4);
         --image-border-hover: hsl(245, 25%, 74%);
@@ -126,7 +127,7 @@ const { title, lang } = Astro.props;
         );
         background-attachment: fixed;
     }
-    
+
     .main-wrapper {
         max-width: 1280px;
         min-height: 100vh;
@@ -139,8 +140,57 @@ const { title, lang } = Astro.props;
         padding-right: 1.5rem;
     }
 
+    .content-hover-container {
+        display: none;
+        border-radius: 0.375rem;
+        z-index: 0;
+        top: -1rem;
+        bottom: -1rem;
+        left: -1rem;
+        right: -1rem;
+        position: absolute;
+
+        transition-property:
+            color,
+            background-color,
+            border-color,
+            text-decoration-color,
+            fill,
+            stroke,
+            opacity,
+            box-shadow,
+            transform,
+            filter,
+            backdrop-filter,
+            -webkit-backdrop-filter;
+
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: .15s;
+    }
+
     .content-wrapper {
         padding-top: 6rem;
+    }
+
+    .content-container {
+        position: relative;
+        display: grid;
+
+        padding-bottom: 0.25rem;
+
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 0.15s;
+    }
+
+    .content-link-container {
+        display: none;
+        border-radius: 0.25rem;
+        top: -0.625rem;
+        bottom: -0.625rem;
+        left: -1rem;
+        right: -1rem;
+        position: absolute;
     }
 
     .content {
@@ -211,6 +261,12 @@ const { title, lang } = Astro.props;
         gap: 1rem;
     }
 
+    @media (min-width: 640px) {
+        .content-container {
+            gap: 2rem;
+            grid-template-columns: repeat(8, minmax(0, 1fr));
+        }
+    }
     /* Just margins */
     @media (min-width: 768px) {
         .main-wrapper {
@@ -218,6 +274,17 @@ const { title, lang } = Astro.props;
             padding-bottom: 5rem;
             padding-left: 3rem;
             padding-right: 3rem;
+        }
+
+        .content-container {
+            gap: 1rem;
+        }
+
+        .content-link-container {
+            top: -1rem;
+            bottom: -1rem;
+            left: -1.5rem;
+            right: -1.5rem;
         }
 
         .content-title {
@@ -239,6 +306,34 @@ const { title, lang } = Astro.props;
             padding-bottom: 0;
             padding-left: 6rem;
             padding-right: 6rem;
+        }
+
+        .content-container:hover {
+            opacity: 1 !important;
+        }
+
+        .content-link-container {
+            display: block;
+            top: -1rem;
+            bottom: -1rem;
+            left: -1.5rem;
+            right: -1.5rem;
+        }
+
+        .content-hover-container {
+            display: block;
+            left: -1.5rem;
+            right: -1.5rem;
+        }
+
+        .content-container:hover .content-hover-container {
+            filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04))
+                drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+            box-shadow:
+                0 0 #0000,
+                0 0 #0000,
+                inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
+            background-color: var(--hover-content-large-screen);
         }
 
         .main-flex-container {
