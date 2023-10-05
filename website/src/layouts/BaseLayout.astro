@@ -279,7 +279,7 @@ const { title, lang } = Astro.props;
         font-weight: 700;
     }
 
-    .sr-only {
+    a .sr-only {
         position: absolute;
         width: 1px;
         height: 1px;
@@ -420,6 +420,18 @@ const { title, lang } = Astro.props;
             margin-right: auto;
             top: auto;
             position: relative;
+        }
+
+        .content-title .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
         }
 
         .content-title > h2 {
