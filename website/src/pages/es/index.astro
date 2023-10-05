@@ -1,1 +1,30 @@
-<h1>Spanish</h1>
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import About from "../../components/About.astro";
+import Experience from "../../components/Experience.astro";
+import Projects from "../../components/Projects.astro";
+---
+
+<BaseLayout title="J. Rai" lang="en">
+    <div class="gradient-container">
+        <div class="main-wrapper">
+            <div class="main-flex-container">
+                <Header
+                    title="J. Rai"
+                    subtitle="Desarrollador Full Stack y de juegos"
+                    tagline="Construyo experiencias multimedia interactivas centradas en la experiencia del usuario."
+                    githubUser="jraicr"
+                    twitterUser="JRaiDev"
+                    linkedinUser="SIN CONFIGURAR"
+                />
+
+                <main id="content-container" class="content-wrapper">
+                    <About />
+                    <Experience />
+                    <Projects />
+                </main>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
