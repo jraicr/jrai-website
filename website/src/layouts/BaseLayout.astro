@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+
 interface Props {
     lang: string;
     title: string;
@@ -16,18 +17,6 @@ const { title, lang } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-
-        <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-        <link
-            rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-            as="style"
-            onload="
-            this.onload = null; this.rel = 'stylesheet'
-            "
-        /> -->
 
         <link rel="preconnect" href="https://rsms.me/" crossorigin />
 
