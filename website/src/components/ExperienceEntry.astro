@@ -16,14 +16,27 @@ const { date, companyUrl, companyName, role, oldRole } = Astro.props;
         <header class="experience-header" aria-label={date}>
             {date}
         </header>
-        <div class="experience-entry">
-            <h3 class="experience-heading-text">
+        <div class="content-entry">
+            <h3 class="content-heading-text">
                 <div>
-                    <a href={companyUrl} class="experience-title-link">
+                    <a href={companyUrl} class="content-title-link">
                         <span class="content-link-container"></span>
                         <span
                             >{role} ·
-                            <span class="experience-site">{companyName}</span>
+                            <span class="experience-site"
+                                >{companyName}
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    class="content-title-icon"
+                                    aria-hidden="true"
+                                    ><path
+                                        fill-rule="evenodd"
+                                        d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                                        clip-rule="evenodd"></path></svg
+                                >
+                            </span>
                         </span>
                     </a>
                     <div class="old-role">
@@ -69,28 +82,6 @@ const { date, companyUrl, companyName, role, oldRole } = Astro.props;
         margin-top: 0.25rem;
     }
 
-    .experience-entry {
-        z-index: 10;
-    }
-
-    .experience-heading-text {
-        color: var(--main-headline);
-        line-height: 1.375;
-        font-weight: 500;
-        margin: 0;
-        font-size: inherit;
-    }
-
-    .experience-title-link {
-        color: var(--main-headline);
-        line-height: 1.25;
-        font-weight: 500;
-        font-size: 1rem;
-        align-items: baseline;
-        display: inline-flex;
-        text-decoration: inherit;
-    }
-
     .experience-site {
         display: inline-block;
     }
@@ -102,10 +93,6 @@ const { date, companyUrl, companyName, role, oldRole } = Astro.props;
     @media (min-width: 640px) {
         .experience-header {
             grid-column: span 2 / span 2;
-        }
-
-        .experience-entry {
-            grid-column: span 6 / span 6;
         }
     }
 </style>

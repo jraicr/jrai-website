@@ -92,11 +92,6 @@ h2 {
     padding: 0;
 }
 
-a {
-    text-decoration: none;
-    color: var(--main-headline);
-}
-
 p {
     color: var(--text-color);
 }
@@ -124,14 +119,8 @@ video {
 }
 
 .gradient-container {
-    /* background: radial-gradient(
-        circle at 0% 0%,
-        hsla(251, 100%, 35%, 0.333) 11%,
-        rgba(255, 255, 255, 0) 75%
-    ); */
-
     background: radial-gradient(600px circle at 0px 0px,
-            hsla(251, 100%, 35%, 0.25),
+            hsla(274, 100%, 35%, 0.25),
             transparent 80%);
 
     background-attachment: fixed;
@@ -262,6 +251,39 @@ a .sr-only {
     margin-right: 0.5rem;
 }
 
+.content-entry {
+    z-index: 10;
+}
+
+.content-heading-text {
+    color: var(--main-headline);
+    line-height: 1.375;
+    font-weight: 500;
+    margin: 0;
+    font-size: inherit;
+}
+
+.content-title-icon {
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    margin-left: 0.25rem;
+    flex-shrink: 0;
+    vertical-align: middle;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transition-duration: .15s;
+    transform: translate(0, 1px) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1)
+}
+
+.content-title-link:hover {
+    color: var(--hover-link-color);
+}
+
+.content-title-link:hover .content-title-icon {
+    transform: translate(0.25rem, -0.25rem) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1)
+}
+
 /* Utility Classes */
 .mb-12 {
     margin-bottom: 3rem;
@@ -275,6 +297,11 @@ a .sr-only {
     .content-container {
         gap: 2rem;
         grid-template-columns: repeat(8, minmax(0, 1fr));
+    }
+
+    .content-entry {
+        grid-column: span 6 / span 6;
+        order: 2;
     }
 }
 
@@ -347,6 +374,10 @@ a .sr-only {
         background-color: var(--hover-content-large-screen);
     }
 
+    .content-container:hover .content-title-link {
+        color: var(--hover-link-color);
+    }
+
     .content-list:hover .content-container {
         opacity: 0.5;
     }
@@ -395,5 +426,32 @@ a .sr-only {
     .content {
         scroll-margin-top: 6rem;
         margin-bottom: 9rem;
+    }
+}
+
+
+@media(prefers-reduced-motion: no-preference) {
+
+    a,
+    button {
+        text-decoration: none;
+        color: var(--main-headline);
+
+        transition-property:
+            color,
+            background-color,
+            border-color,
+            text-decoration-color,
+            fill,
+            stroke,
+            opacity,
+            box-shadow,
+            transform,
+            filter,
+            backdrop-filter,
+            -webkit-backdrop-filter;
+
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 0.15s;
     }
 }

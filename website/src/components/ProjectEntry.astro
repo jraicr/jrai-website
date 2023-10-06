@@ -11,14 +11,26 @@ const { name, image, alt } = Astro.props;
 <li class="mb-12">
     <div class="content-container gap-4">
         <div class="content-hover-container"></div>
-        <div class="project-entry">
-            <h3 class="project-heading-text">
-                <a href="link" class="project-title-link">
+        <div class="content-entry">
+            <h3 class="content-heading-text">
+                <a href="link" class="content-title-link">
                     <span class="content-link-container"></span>
                     {name}
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        class="content-title-icon"
+                        aria-hidden="true"
+                        ><path
+                            fill-rule="evenodd"
+                            d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                            clip-rule="evenodd"></path></svg
+                    >
                 </a>
-                    <slot name="desc" />
             </h3>
+            <slot name="desc" />
+
             <slot name="related-links" />
             <slot name="tech-label" />
         </div>
@@ -34,47 +46,7 @@ const { name, image, alt } = Astro.props;
 </li>
 
 <style>
-    .project-entry {
-        z-index: 10;
-    }
-
-    .project-heading-text {
-        color: var(--main-headline);
-        line-height: 1.375;
-        font-weight: 500;
-        margin: 0;
-        font-size: inherit;
-    }
-
-    .project-title-link {
-        color: var(--main-headline);
-        line-height: 1.25;
-        font-weight: 500;
-        font-size: 1rem;
-        align-items: baseline;
-        display: inline-flex;
-        text-decoration: inherit;
-    }
-
-    .project-text {
-        line-height: 1.5;
-        font-size: 0.875rem;
-        margin-top: 0.5rem;
-    }
-
-    .project-image {
-        color: transparent;
-        border-color: var(--image-border);
-        border-width: 2px;
-        border-radius: 0.25rem;
-    }
-
     @media (min-width: 640px) {
-        .project-entry {
-            grid-column: span 6 / span 6;
-            order: 2;
-        }
-
         .project-image {
             transform: translate(0, 0.25rem) rotate(0) skewX(0) skewY(0)
                 scaleX(1) scaleY(1);
