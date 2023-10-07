@@ -55,8 +55,10 @@ function updateGradientPosition(e) {
     if (currentScreenWidth >= 1024) {
         gradientMoveFromOrigin = true;
         gradientContainer.style.background = `radial-gradient(600px circle at ${e.pageX}px ${e.pageY}px, hsla(274, 100%, 35%, 0.25), transparent 80%)`;
+        
     } else if (currentScreenWidth < 1024 && gradientMoveFromOrigin) {
         gradientContainer.style.background = `radial-gradient(600px circle at 0px 0px, hsla(274, 100%, 35%, 0.25), transparent 80%)`;
+        gradientContainer.style.backgroundAttachment = "fixed";
         gradientMoveFromOrigin = false;
     }
 }
