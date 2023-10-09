@@ -374,7 +374,7 @@ a .sr-only {
         background-color: var(--hover-content-large-screen);
     }
 
-    .content-container:hover .content-title-link {
+    .content-title-link:hover {
         color: var(--hover-link-color);
     }
 
