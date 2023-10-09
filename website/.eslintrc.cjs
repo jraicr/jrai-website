@@ -1,59 +1,65 @@
+const { builtinModules } = require('module');
+
 module.exports = {
-	// ...
-	overrides: [
-		{
-			// Define the configuration for `.astro` file.
-			files: ["*.astro"],
-			// Enable this plugin
-			plugins: ["astro"],
-			env: {
-				// Enables global variables available in Astro components.
-				node: true,
-				"astro/astro": true,
-				es2024: true,
-			},
-			// Allows Astro components to be parsed.
-			parser: "astro-eslint-parser",
-			// Parse the script in `.astro` as TypeScript by adding the following configuration.
-			// It's the setting you need when using TypeScript.
-			parserOptions: {
-				ecmaVersion: "latest",
-				parser: "@typescript-eslint/parser",
-				extraFileExtensions: [".astro"],
-				// The script of Astro components uses ESM.
-				sourceType: "module",
-			},
-			rules: {
-				// Enable recommended rules
-				"astro/no-conflict-set-directives": "error",
-				"astro/no-unused-define-vars-in-style": "error",
+    // Configuration for JavaScript files
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        // "project": "./tsconfig.json",
+        "extraFileExtensions": [
+            ".astro"
+        ] // This is a required setting in `@typescript-eslint/parser` v5.
+    },
+    "overrides": [
+        // Configuration for mjs,cjs files
+        {
+            "files": [
+                "*.mjs",
+                "*.cjs"
+            ],
+            "rules": {
 
-				// override/add rules settings here, such as:
-				"astro/no-set-html-directive": "error"
-			},
-		},
-		{
-			// Define the configuration for `<script>` tag.
-			// Script in `<script>` is assigned a virtual file name with the `.js` extension.
-			files: ["**/*.astro/*.js", "*.astro/*.js", "*.js"],
-			env: {
-				browser: true,
-				"astro/astro": true,
-				es2024: true,
-			},
-			parserOptions: {
-				ecmaVersion: "latest",
-				sourceType: "module",
-			},
-			rules: {
-				// override/add rules settings here, such as:
-				"no-unused-vars": "error",
-
-				// If you are using "prettier/prettier" rule,
-				// you don't need to format inside <script> as it will be formatted as a `.astro` file.
-				"prettier/prettier": "off",
-			},
-		},
-		// ...
-	],
+            }
+        },
+        // Configuration for TypeScript files
+        {
+            "parser": "@typescript-eslint/parser",
+            "files": [
+                "*.ts",
+                "*.tsx"
+            ],
+            "plugins": [
+                "@typescript-eslint"
+            ],
+            "parserOptions": {
+                "project": "./tsconfig.json"
+            },
+            "rules": {
+                // Avoid missing file extension errors when using '@/' alias
+                "@typescript-eslint/consistent-type-imports": "error", // Ensure `import type` is used when it's necessary
+                "import/prefer-default-export": "off", // Named export is easier to refactor automatically
+                "@typescript-eslint/no-unused-vars": "off"
+            }
+        },
+        // Configuration for Astro
+        {
+            "files": [
+                "*.astro"
+            ],
+            "plugins": [
+                "@typescript-eslint"
+            ],
+            "parser": "astro-eslint-parser",
+            "parserOptions": {
+                "parser": "@typescript-eslint/parser"
+            },
+            "rules": {
+                // Accept jsx in astro files
+                "@typescript-eslint/consistent-type-imports": "error", // Ensure `import type` is used when it's necessary
+                "@typescript-eslint/no-unused-vars": "off"
+            },
+            "globals": {
+                "Astro": "readonly"
+            }
+        }
+    ]
 }
