@@ -2,6 +2,7 @@
 import GithubIcon from "../social-icons/github.astro";
 import TwitterIcon from "../social-icons/twitter.astro";
 import LinkedinIcon from "../social-icons/linkedin.astro";
+import HeaderNav from "../HeaderNav.astro";
 
 interface Props {
     title: string;
@@ -24,7 +25,7 @@ const { title, subtitle, tagline, githubUser, twitterUser, linkedinUser } =
         <p class="tagline">{tagline}</p>
 
         <!-- TODO: Navigator for wide screens -->
-        <nav></nav>
+        <HeaderNav />
     </div>
 
     <!-- SOCIAL ICONS -->
@@ -54,15 +55,61 @@ const { title, subtitle, tagline, githubUser, twitterUser, linkedinUser } =
         max-width: 20rem;
         line-height: 1.5;
         margin-top: 1rem;
-
     }
 
     .greeting-line {
+        width: fit-content;
         font-size: 1.125rem;
         font-weight: 500;
         line-height: 1.5;
         color: var(--main-headline);
         margin-bottom: 0.75rem;
+    }
+
+    .greeting-line-animation {
+        animation-name: greeting-anim;
+        animation-duration: 2s;
+        animation-timing-function: cubic-bezier(0.27, 1, 0.175, 1);
+        transition: all;
+    }
+
+    @keyframes greeting-anim {
+        0% {
+            transform: translate(0, 0) rotate(3deg) skewX(0) skewY(0)
+                scaleX(0.95) scaleY(0.95);
+        }
+        25% {
+            transform: translate(0, 10px) rotate(10deg) skewX(0) skewY(0)
+                scaleX(0.75) scaleY(0.75);
+        }
+        50% {
+            transform: translate(0, -45px) rotate(-15deg) skewX(0) skewY(0)
+                scaleX(1.25) scaleY(1.25);
+        }
+
+        55% {
+            transform: translate(0, -40px) rotate(20deg) skewX(0) skewY(0)
+                scaleX(1.25) scaleY(1.25);
+        }
+
+        60% {
+            transform: translate(0, -35px) rotate(-15deg) skewX(0) skewY(0)
+                scaleX(1.25) scaleY(1.25);
+        }
+
+        65% {
+            transform: translate(0, -30px) rotate(20deg) skewX(0) skewY(0)
+                scaleX(1.25) scaleY(1.25);
+        }
+
+        70% {
+            transform: translate(0, -25px) rotate(-15deg) skewX(0) skewY(0)
+                scaleX(1.25) scaleY(1.25);
+        }
+        100% {
+            transform: translate(0, 0) rotate(0) skewX(0) skewY(0) scaleX(1)
+                scaleY(1);
+        }
     }
 
     .highlight {
@@ -82,7 +129,8 @@ const { title, subtitle, tagline, githubUser, twitterUser, linkedinUser } =
             line-height: 1;
         }
 
-        .greeting-line, h2 {
+        .greeting-line,
+        h2 {
             font-size: 1.25rem;
             line-height: 1.75rem;
         }
@@ -107,3 +155,31 @@ const { title, subtitle, tagline, githubUser, twitterUser, linkedinUser } =
         }
     }
 </style>
+
+<script>
+    let greetingLine = document.querySelector(".greeting-line");
+    let runningAnimation = false;
+
+    greetingLine.addEventListener("click", () => {
+        if (!runningAnimation) {
+            runningAnimation = true;
+            greetingLine.classList.add("greeting-line-animation");
+
+            let animDurationInSeconds = greetingLine
+                .computedStyleMap()
+                .get("animation-duration") as CSSUnitValue;
+
+            let animDurationInMiliseconds = animDurationInSeconds.value * 1000;
+            let durationOffset = 250;
+
+            setTimeout(() => {
+                removeAnimation(greetingLine, "greeting-line-animation");
+                runningAnimation = false;
+            }, animDurationInMiliseconds + durationOffset);
+        }
+    });
+
+    function removeAnimation(e: Element, animationName: string) {
+        e.classList.remove(animationName);
+    }
+</script>

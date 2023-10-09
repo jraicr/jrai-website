@@ -1,0 +1,132 @@
+<nav class="header-nav" aria-label="In-page jump links">
+    <ul class="header-nav-list">
+        <li class="header-nav-element">
+            <a href="#about" class="header-nav-link">
+                <span class="nav-indicator"></span>
+                <span class="header-nav-text">About</span>
+            </a>
+        </li>
+        <li class="header-nav-element">
+            <a href="#experience" class="header-nav-link">
+                <span class="nav-indicator"></span>
+                <span class="header-nav-text">Experience</span>
+            </a>
+        </li>
+        <li class="header-nav-element">
+            <a href="#projects" class="header-nav-link">
+                <span class="nav-indicator"></span>
+                <span class="header-nav-text">Projects</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<style>
+    .nav-indicator {
+        width: 2rem;
+        background-color: var(--secondary-headline-color);
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 0.15s;
+        height: 1px;
+        margin-right: 1rem;
+    }
+
+    .active .nav-indicator {
+        width: 4rem;
+        background-color: var(--link-color);
+    }
+
+    .header-nav {
+        display: none;
+    }
+
+    .header-nav-list {
+        width: max-content;
+        margin-top: 4rem;
+    }
+
+    .header-nav-link {
+        display: flex;
+        align-items: center;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .header-nav-text {
+        color: var(--secondary-headline-color);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.75rem;
+        line-height: 1rem;
+
+        transition-property:
+            color,
+            background-color,
+            border-color,
+            text-decoration-color,
+            fill,
+            stroke,
+            opacity,
+            box-shadow,
+            transform,
+            filter,
+            backdrop-filter,
+            -webkit-backdrop-filter;
+
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 0.15s;
+    }
+
+    .header-nav-element:hover .header-nav-text {
+        color: var(--link-color);
+    }
+
+    .header-nav-element:hover .nav-indicator {
+        width: 4rem;
+        background-color: var(--link-color);
+    }
+
+    .active .header-nav-text {
+        color: var(--link-color);
+    }
+
+    @media (min-width: 1024px) {
+        .header-nav {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".header-nav-link");
+
+    window.onload = () => {
+        updateNavLink();
+    };
+
+    window.onscroll = () => {
+        updateNavLink();
+    };
+
+    function updateNavLink() {
+        sections.forEach((section) => {
+            let top = window.scrollY;
+            let offset = section.offsetTop - 150;
+            let height = section.offsetHeight;
+
+            let id = section.getAttribute("id");
+
+            if (top >= offset && top < offset + height) {
+                navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                    document
+                        .querySelector(`.header-nav-link[href*=${id}]`)
+                        .classList.add("active");
+                });
+            }
+        });
+    }
+</script>
