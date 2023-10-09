@@ -407,7 +407,8 @@ a .sr-only {
         position: relative;
     }
 
-    .content-title .sr-only {
+    /* .content-title .sr-only { */
+    .sr-only {
         position: absolute;
         width: 1px;
         height: 1px;
