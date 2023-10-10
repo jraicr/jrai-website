@@ -9,11 +9,19 @@ import ProjectTopTwitchImage from "../../images/project-top-Twitch.webp";
 import ProjectDockerDevTmage from "../../images/project-docker-dev.webp";
 import ProjectFourFramesImage from "../../images/project-four-frames.webp";
 import ProjectPuzzleSystemImage from "../../images/project-trigger-puzzle.webp";
+
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+import { getCollection } from 'astro:content';
+const projects = await getCollection('projects');
+
 ---
 
 <section id="projects" class="content">
     <div class="content-title sr-only">
-        <h2>Projects</h2>
+        <h2>{t('nav.projects')}</h2>
     </div>
 
     <div>
@@ -212,7 +220,7 @@ import ProjectPuzzleSystemImage from "../../images/project-trigger-puzzle.webp";
                 </ul>
             </ProjectEntry>
         </ul>
-        <ViewFullLink partialText="View Full " lastWord="Project Archive" />
+        <ViewFullLink partialText={t('link.projects.partial')} lastWord={t('link.projects.last')} />
     </div>
 </section>
 

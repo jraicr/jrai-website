@@ -1,0 +1,20 @@
+{
+    "dates": "2023 - Actualidad",
+    "lastRole": "Ingeniero de Software Freelance",
+    "oldRole": [
+        "Prácticas como Ingeniero de software"
+    ],
+    "company": "CTA",
+    "url": "https://www.cta-observatory.org/about/locations/ctao-north/",
+    "description": [
+        "Diseño, desarrollo, documentación, despliegue y mantenimiento de aplicaciones web científicas que facilita a diversos especialistas técnicos y científicos tomar decisiones y evaluar diferentes instrumentos a través de la exploración de datos."
+    ],
+    "tags": [
+        "Python",
+        "Pandas",
+        "Holoviz",
+        "JavaScript",
+        "MongoDB",
+        "Big Data"
+    ]
+}

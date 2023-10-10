@@ -1,0 +1,28 @@
+{
+    "dates": "2009 - 2019",
+    "lastRole": "Desarrollador Web y de Gameplay en ArmA 2 y 3",
+    "company": "UST 101",
+    "url": "https://web.archive.org/web/20150924195931/http://www.ust101.com/v2/content.php?s=4b1906e75cc947816665668a6261d4f8",
+    "description": [
+        "Fundador y desarrollador web en la comunidad de simulación militar táctica de mayor éxito en España basada en ArmA 2 y ArmA 3.",
+        "Desarrollador de misiones multijugador donde los jugadores deben resolver situaciones bélicas a gran escala de forma cooperativa y basadas en hechos reales."
+    ],
+    "relatedLinks": [
+        {
+            "text": "Sangīn Cooperative Dynamic Campaign",
+            "url": "https://github.com/jraicr/Asedio_a_Sangin.hellskitchen",
+            "iconType": "github"
+        }
+    ],
+    "tags": [
+        "Windows Server",
+        "Linux",
+        "ArmA Scripting Language",
+        "Networking Programming",
+        "Javascript",
+        "PHP",
+        "VBulletin",
+        "CSS",
+        "HTML"
+    ]
+}

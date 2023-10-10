@@ -4,7 +4,7 @@ interface Props {
     companyName: string;
     companyUrl: string;
     role: string;
-    oldRole?: string;
+    oldRole?: Array<string>;
 }
 
 const { date, companyUrl, companyName, role, oldRole } = Astro.props;
@@ -19,7 +19,11 @@ const { date, companyUrl, companyName, role, oldRole } = Astro.props;
         <div class="content-entry">
             <h3 class="content-heading-text">
                 <div>
-                    <a href={companyUrl} class="content-title-link">
+                    <a
+                        href={companyUrl}
+                        class="content-title-link"
+                        target="_blank"
+                    >
                         <span class="content-link-container"></span>
                         <span
                             >{role} ·
@@ -40,7 +44,11 @@ const { date, companyUrl, companyName, role, oldRole } = Astro.props;
                         </span>
                     </a>
                     <div class="old-role">
-                        <div>{oldRole}</div>
+                        {
+                            oldRole?.map((role) => {
+                                return (<div>{role}</div>);
+                            })
+                        }
                     </div>
                 </div>
             </h3>

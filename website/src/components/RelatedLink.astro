@@ -11,7 +11,7 @@ interface Props {
 
 const { iconType, text, href } = Astro.props;
 
-let DynamicIcon = null;
+let DynamicIcon = SvgIconClip;
 
 function renderIconSwitch(iconType: string) {
     switch (iconType) {

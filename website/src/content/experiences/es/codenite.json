@@ -1,0 +1,22 @@
+{
+    "dates": "2023 - Actualidad",
+    "lastRole": "Fundador y Desarrollador",
+    "company": "Codenite Studios",
+    "url": "https://assetstore.unity.com/publishers/15679",
+    "description": [
+        "Desarrollo, asistencia de soluciones y herramientas a medida para el motor de videojuegos Unity."
+    ],
+    "relatedLinks": [
+        {
+            "text": "Trigger Puzzle System",
+            "url": "https://assetstore.unity.com/packages/tools/utilities/trigger-puzzle-system-43851",
+            "iconType": "clip"
+        }
+    ],
+    "tags": [
+        "Unity",
+        "C#",
+        "Photon",
+        "Firebase"
+    ]
+}

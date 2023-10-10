@@ -1,0 +1,22 @@
+{
+    "dates": "2023 - Present",
+    "lastRole": "Founder & Solo Dev",
+    "company": "Codenite Studios",
+    "url": "https://assetstore.unity.com/publishers/15679",
+    "description": [
+        "Development and support of tailored solutions and tools for the Unity game engine."
+    ],
+    "relatedLinks": [
+        {
+            "text": "Trigger Puzzle System",
+            "url": "https://assetstore.unity.com/packages/tools/utilities/trigger-puzzle-system-43851",
+            "iconType": "clip"
+        }
+    ],
+    "tags": [
+        "Unity",
+        "C#",
+        "Photon",
+        "Firebase"
+    ]
+}

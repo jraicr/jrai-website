@@ -1,0 +1,20 @@
+{
+    "dates": "2023 - Present",
+    "lastRole": "Freelancer as Software Engineer",
+    "oldRole": [
+        "Intern as Software Engineer"
+    ],
+    "company": "CTA",
+    "url": "https://www.cta-observatory.org/about/locations/ctao-north/",
+    "description": [
+        "Design, development, documentation, deployment and maintenance of scientific web applications that enable various technical and scientific specialists to make decisions and evaluate the LST1 instrument through data exploration."
+    ],
+    "tags": [
+        "Python",
+        "Pandas",
+        "Holoviz",
+        "JavaScript",
+        "MongoDB",
+        "Big Data"
+    ]
+}

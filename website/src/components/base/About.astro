@@ -1,10 +1,13 @@
 ---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="about" class="content" aria-label="About me">
     <div class="content-title sr-only">
-        <h2>About</h2>
+        <h2>{t('nav.about')}</h2>
     </div>
 
     <div>

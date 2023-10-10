@@ -10,7 +10,7 @@ const { partialText, lastWord } = Astro.props;
 <div>
     <a class="view-full-link" href="curriculum.pdf">
         <span>
-            <span class="partial-text">{partialText}</span>
+            <span class="partial-text">{partialText}&nbsp;</span>
 
             <span class="last-word-container">
                 <span class="last-word">{lastWord}</span>
@@ -63,7 +63,7 @@ const { partialText, lastWord } = Astro.props;
         border-color: transparent;
         border-bottom-width: 1px;
     }
-
+    
     .last-word-container {
         white-space: nowrap;
     }
