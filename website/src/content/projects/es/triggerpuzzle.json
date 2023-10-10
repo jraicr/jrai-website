@@ -1,0 +1,20 @@
+{
+    "name": "Trigger Puzzle System",
+    "description": [
+        "Plugin de Unity que permite crear puzzles fácilmente para diferentes géneros de juegos, como plataformas, RPGs, aventuras tipo Zelda, juegos de lógica y más. Esta herramienta introduce un nuevo sistema de objetos activables y objetos disparadores. Su enfoque se centra en el flujo de trabajo y facilita la separación entre diseño y programación de puzzles en equipos."
+    ],
+    "url": "https://assetstore.unity.com/packages/tools/utilities/trigger-puzzle-system-43851",
+    "relatedLinks": [
+        {
+            "text": "152 Usuarios han marcado este plugin como favorito",
+            "url": "https://assetstore.unity.com/packages/tools/utilities/trigger-puzzle-system-43851#reviews",
+            "iconType": "like"
+        }
+    ],
+    "tags": [
+        "HTML",
+        "Javascript",
+        "CSS"
+    ],
+    "picture": "@/content/projects/triggerpuzzle.webp"
+}

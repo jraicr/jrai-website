@@ -22,21 +22,23 @@ const experienceCollection = defineCollection({
 
 const projectCollection = defineCollection({
     type: 'data',
-    schema: z.object({
+    schema: ({ image }) => z.object({
         name: z.string(),
         description: z.array(z.string()),
-
+        url: z.string().url(),
         relatedLinks: z.array(z.object({
             text: z.string(),
             url: z.string().url(),
             iconType: z.string()
         })).optional(),
-
         tags: z.array(z.string()),
-        image: z.string(),
-    })
-})
+        picture: image().refine((img) => img.width >= 100, {
+                message: "La imagen debe de tener al menos 100 píxeles de ancho!",
+        }),
+    }),
+});
 
 export const collections = {
-    'experiences': experienceCollection
+    'experiences': experienceCollection,
+    'projects': projectCollection
 };

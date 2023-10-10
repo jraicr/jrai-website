@@ -1,0 +1,34 @@
+{
+    "name": "Docker Dev Templates",
+    "description": [
+        "Github organization that has a series of repositories that represent rich templates for deploying development environments using Docker containers. They are oriented to web development with frameworks and libraries such as Vue, Astro, Laravel and the like."
+    ],
+    "url": "https://github.com/docker-dev-templates",
+    "relatedLinks": [
+        {
+            "text": "Astro",
+            "url": "https://github.com/docker-dev-templates/docker-astro-template",
+            "iconType": "github"
+        },
+        {
+            "text": "LEMP Laravel",
+            "url": "https://github.com/docker-dev-templates/docker-lemp-laravel",
+            "iconType": "github"
+        },
+        {
+            "text": "LEMP Vue.js & Laravel",
+            "url": "https://github.com/docker-dev-templates/docker-lemp-laravel-vue",
+            "iconType": "github"
+        }
+    ],
+    "tags": [
+        "Docker",
+        "Bash",
+        "Nginx",
+        "MariaDB",
+        "Vue",
+        "Laravel",
+        "Astro"
+    ],
+    "picture": "@/content/projects/dockerdev.webp"
+}

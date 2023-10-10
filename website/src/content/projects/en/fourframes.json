@@ -1,0 +1,20 @@
+{
+    "name": "4-Frames",
+    "description": [
+        "Web game where you have to guess the movie through up to 4 frames. Each attemp unlocks a new frame until you reach the last one."
+    ],
+    "url": "https://rai.departamentoinformaticajmpp.com/DEW/Unidad_02/01_Juego/index.html",
+    "relatedLinks": [
+        {
+            "text": "Repository",
+            "url": "https://github.com/jraicr/4-Frames/",
+            "iconType": "github"
+        }
+    ],
+    "tags": [
+        "HTML",
+        "Javascript",
+        "CSS"
+    ],
+    "picture": "@/content/projects/fourframes.webp"
+}

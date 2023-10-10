@@ -1,0 +1,21 @@
+{
+    "name": "Top 100 Twitch Hispano",
+    "description": [
+        "Lista los 100 canales de habla hispana con más espectadores en este momento. Selecciona el canal para cargar su emisión en directo, filtra por nombre de canal y añade los que prefieras a tu lista de favoritos."
+    ],
+    "url": "https://rai.departamentoinformaticajmpp.com/DEW/Unidad_07/ejercicio_3/index.html",
+    "relatedLinks": [
+        {
+            "text": "Repositorio",
+            "url": "https://github.com/jraicr/twitch-top100-hispano",
+            "iconType": "github"
+        }
+    ],
+    "tags": [
+        "Javascript",
+        "CSS",
+        "HTML",
+        "Twitch API"
+    ],
+    "picture": "@/content/projects/top-twitch.webp"
+}

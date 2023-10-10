@@ -1,0 +1,21 @@
+{
+    "name": "Top 100 Twitch Hispano",
+    "description": [
+        "Lists the 100 Spanish-speaking channels with the most viewers at the moment. Select the channel to load its live broadcast, filter by channel name and add your prefered ones to you favourite list."
+    ],
+    "url": "https://rai.departamentoinformaticajmpp.com/DEW/Unidad_07/ejercicio_3/index.html",
+    "relatedLinks": [
+        {
+            "text": "Repository",
+            "url": "https://github.com/jraicr/twitch-top100-hispano",
+            "iconType": "github"
+        }
+    ],
+    "tags": [
+        "Javascript",
+        "CSS",
+        "HTML",
+        "Twitch API"
+    ],
+    "picture": "@/content/projects/top-twitch.webp"
+}

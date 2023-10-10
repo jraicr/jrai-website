@@ -1,0 +1,20 @@
+{
+    "name": "4-Frames",
+    "description": [
+        "Juego web en el que tienes que adivinar la película a través de hasta 4 fotogramas. Cada intento desbloquea un nuevo fotograma hasta llegar al último."
+    ],
+    "url": "https://rai.departamentoinformaticajmpp.com/DEW/Unidad_02/01_Juego/index.html",
+    "relatedLinks": [
+        {
+            "text": "Repositorio",
+            "url": "https://github.com/jraicr/4-Frames/",
+            "iconType": "github"
+        }
+    ],
+    "tags": [
+        "HTML",
+        "Javascript",
+        "CSS"
+    ],
+    "picture": "@/content/projects/fourframes.webp"
+}

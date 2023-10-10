@@ -1,0 +1,23 @@
+{
+    "name": "GIPL",
+    "description": [
+        "Aplicación web para gestionar las incidencias en las aulas de informática. Configuración de usuarios, roles y privilegios. Administración de inventario y equipos de las aulas. Gestión de alumnos, equipos informáticos, incidencias y seguimiento de su estado."
+    ],
+    "url": "https://rai.departamentoinformaticajmpp.com/gipl",
+    "relatedLinks": [
+        {
+            "text": "Repositorio",
+            "url": "https://github.com/jraicr/gipl",
+            "iconType": "github"
+        }
+    ],
+    "tags": [
+        "PHP",
+        "Laravel",
+        "AdminLTE",
+        "Bootstrap",
+        "MariaDB",
+        "Docker"
+    ],
+    "picture": "@/content/projects/gipl.webp"
+}

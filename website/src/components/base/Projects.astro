@@ -3,224 +3,75 @@ import ProjectEntry from "@/components/ProjectEntry.astro";
 import RelatedLink from "@/components/RelatedLink.astro";
 import TechLabel from "@/components/TechLabel.astro";
 import ViewFullLink from "@/components/ViewFullLink.astro";
-import PlaceholderImage from "@/images/placeholder.png";
-import ProjectGIPLImage from "@/images/project-gipl.webp";
-import ProjectTopTwitchImage from "@/images/project-top-Twitch.webp";
-import ProjectDockerDevTmage from "@/images/project-docker-dev.webp";
-import ProjectFourFramesImage from "@/images/project-four-frames.webp";
-import ProjectPuzzleSystemImage from "@/images/project-trigger-puzzle.webp";
 
-import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-import { getCollection } from 'astro:content';
-const projects = await getCollection('projects');
-
+import { getCollection } from "astro:content";
+const projects = await getCollection("projects", ({ id }) => {
+    return id.includes(lang + "/");
+});
 ---
 
 <section id="projects" class="content">
     <div class="content-title sr-only">
-        <h2>{t('nav.projects')}</h2>
+        <h2>{t("nav.projects")}</h2>
     </div>
 
     <div>
         <ul class="content-list">
-            <!-- GIPL -->
-            <ProjectEntry name="GIPL" image={ProjectGIPLImage.src} alt="GIPL">
-                <p slot="desc" class="project-text">
-                    Web app to manage incidents in computer classrooms.
-                    Configuration of users, roles and privileges. Inventory
-                    management and classroom equipment, management of students,
-                    computer equipment, incidents and monitoring of their
-                    status.
-                </p>
+            {
+                projects.map((project) => {
+                    return (
+                        <ProjectEntry
+                            name={project.data.name}
+                            image={project.data.picture}
+                            alt={project.data.name}
+                            url={project.data.url}
+                        >
+                            {project.data.description.map((p) => {
+                                return (
+                                    <p slot="desc" class="project-text">
+                                        {p}
+                                    </p>
+                                );
+                            })}
 
-                <ul
-                    slot="related-links"
-                    class="lists-related-links"
-                    aria-label="Related links"
-                >
-                    <RelatedLink
-                        iconType="github"
-                        text="Github"
-                        href="https://assetstore.unity.com/packages/tools/utilities/trigger-puzzle-system-43851"
-                    />
-                </ul>
+                            <ul
+                                slot="related-links"
+                                class="lists-related-links"
+                                aria-label="Related links"
+                            >
+                                {project.data.relatedLinks?.map((link) => {
+                                    return (
+                                        <RelatedLink
+                                            iconType={link.iconType}
+                                            text={link.text}
+                                            href={link.url}
+                                        />
+                                    );
+                                })}
+                            </ul>
 
-                <ul
-                    slot="tech-label"
-                    class="list-used-tech"
-                    aria-label="Technologies Used"
-                >
-                    <TechLabel text="PHP" />
-                    <TechLabel text="Laravel" />
-                    <TechLabel text="AdminLTE" />
-                    <TechLabel text="Bootstrap" />
-                    <TechLabel text="MariaDB" />
-                    <TechLabel text="Docker" />
-                </ul>
-            </ProjectEntry>
-
-            <!-- Top 100 Twitch Hispano -->
-            <ProjectEntry
-                name="Top 100 Twitch Hispano"
-                image={ProjectTopTwitchImage.src}
-                alt="Top 100 Twitch Hispano"
-            >
-                <p slot="desc" class="project-text">
-                    Lists the 100 Spanish-speaking channels with the most
-                    viewers at the moment. Select the channel to load its live
-                    broadcast, filter by channel name and add your prefered ones
-                    to you favourite list.
-                </p>
-
-                <ul
-                    slot="related-links"
-                    class="lists-related-links"
-                    aria-label="Related links"
-                >
-                    <RelatedLink
-                        iconType="github"
-                        text="Github"
-                        href="https://assetstore.unity.com/packages/tools/utilities/trigger-puzzle-system-43851"
-                    />
-                </ul>
-
-                <ul
-                    slot="tech-label"
-                    class="list-used-tech"
-                    aria-label="Technologies Used"
-                >
-                    <TechLabel text="JavaScript" />
-                    <TechLabel text="CSS" />
-                    <TechLabel text="Twitch API" />
-                </ul>
-            </ProjectEntry>
-
-            <!-- Docker Dev Templates -->
-            <ProjectEntry
-                name="Docker Dev Templates"
-                image={ProjectDockerDevTmage.src}
-                alt="Docker Dev Templates"
-            >
-                <p slot="desc" class="project-text">
-                    Github organization that has a series of repositories that
-                    represent rich templates for deploying development
-                    environments using Docker containers. They are oriented to
-                    web development with frameworks and libraries such as Vue,
-                    Astro, Laravel and the like.
-                </p>
-
-                <ul
-                    slot="related-links"
-                    class="lists-related-links"
-                    aria-label="Related links"
-                >
-                    <RelatedLink
-                        iconType="github"
-                        text="Astro"
-                        href="https://github.com/docker-dev-templates/docker-astro-template"
-                    />
-                    <RelatedLink
-                        iconType="github"
-                        text="LEMP Laravel"
-                        href="https://github.com/docker-dev-templates/docker-lemp-laravel"
-                    />
-                    <RelatedLink
-                        iconType="github"
-                        text="LEMP Vue.js & Laravel"
-                        href="https://github.com/docker-dev-templates/docker-lemp-laravel-vue"
-                    />
-                </ul>
-
-                <ul
-                    slot="tech-label"
-                    class="list-used-tech"
-                    aria-label="Technologies Used"
-                >
-                    <TechLabel text="Docker" />
-                    <TechLabel text="Bash" />
-                    <TechLabel text="Nginx" />
-                    <TechLabel text="MariaDB" />
-                    <TechLabel text="Astro" />
-                    <TechLabel text="Vue" />
-                    <TechLabel text="Laravel" />
-                </ul>
-            </ProjectEntry>
-
-            <!-- 4 Frames -->
-            <ProjectEntry
-                name="Four Frames"
-                image={ProjectFourFramesImage.src}
-                alt="Four Frames"
-            >
-                <p slot="desc" class="project-text">
-                    Web game where you have to guess the movie through up to 4
-                    frames. Each attemp unlocks a new frame until you reach the
-                    last one.
-                </p>
-
-                <ul
-                    slot="related-links"
-                    class="lists-related-links"
-                    aria-label="Related links"
-                >
-                    <RelatedLink
-                        iconType="github"
-                        text="Github"
-                        href="https://github.com/jraicr/four-frames-prototype"
-                    />
-                </ul>
-
-                <ul
-                    slot="tech-label"
-                    class="list-used-tech"
-                    aria-label="Technologies Used"
-                >
-                    <TechLabel text="HTML" />
-                    <TechLabel text="Javascript" />
-                    <TechLabel text="CSS" />
-                </ul>
-            </ProjectEntry>
-
-            <!-- Trigger Puzzle System -->
-            <ProjectEntry
-                name="Trigger Puzzle System"
-                image={ProjectPuzzleSystemImage.src}
-                alt="Trigger Puzzle System"
-            >
-                <p slot="desc" class="project-text">
-                    Unity engine tool to create puzzles easily for any type of
-                    games such as platformers, rpgs, zelda like adventures,
-                    logic games, etc. Introduces a new system of activatable and
-                    trigger objects. A flexible and easy way to create puzzles
-                    that focus on the workflow.
-                </p>
-
-                <ul
-                    slot="related-links"
-                    class="lists-related-links"
-                    aria-label="Related links"
-                >
-                    <RelatedLink
-                        iconType="like"
-                        text="152 users have favourite this asset"
-                        href="https://github.com/jraicr/four-frames-prototype"
-                    />
-                </ul>
-
-                <ul
-                    slot="tech-label"
-                    class="list-used-tech"
-                    aria-label="Technologies Used"
-                >
-                    <TechLabel text="Unity" />
-                    <TechLabel text="C#" />
-                </ul>
-            </ProjectEntry>
+                            <ul
+                                slot="tech-label"
+                                class="list-used-tech"
+                                aria-label="Technologies Used"
+                            >
+                                {project.data.tags.map((tag) => {
+                                    return <TechLabel text={tag} />;
+                                })}
+                            </ul>
+                        </ProjectEntry>
+                    );
+                })
+            }
         </ul>
-        <ViewFullLink partialText={t('link.projects.partial')} lastWord={t('link.projects.last')} />
+        <ViewFullLink
+            partialText={t("link.projects.partial")}
+            lastWord={t("link.projects.last")}
+        />
     </div>
 </section>
 

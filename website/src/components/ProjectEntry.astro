@@ -1,11 +1,15 @@
 ---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
 interface Props {
     name: string;
-    image: string;
+    image: ImageMetadata;
     alt: string;
+    url: string;
 }
 
-const { name, image, alt } = Astro.props;
+const { name, image, alt, url } = Astro.props;
 ---
 
 <li class="mb-12">
@@ -13,7 +17,7 @@ const { name, image, alt } = Astro.props;
         <div class="content-hover-container"></div>
         <div class="content-entry">
             <h3 class="content-heading-text">
-                <a href="link" class="content-title-link">
+                <a href={url} class="content-title-link" target="_blank">
                     <span class="content-link-container"></span>
                     {name}
                     <svg
@@ -34,7 +38,7 @@ const { name, image, alt } = Astro.props;
             <slot name="related-links" />
             <slot name="tech-label" />
         </div>
-        <img
+        <Image
             src={image}
             alt={alt}
             width="200"

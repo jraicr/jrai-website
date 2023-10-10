@@ -1,0 +1,20 @@
+{
+    "name": "Trigger Puzzle System",
+    "description": [
+        "Unity engine tool to create puzzles easily for any type of games such as platformers, rpgs, zelda like adventures, logic games, etc. Introduces a new system of activatable and trigger objects. A flexible and easy way to create puzzles that focus on the workflow."
+    ],
+    "url": "https://assetstore.unity.com/packages/tools/utilities/trigger-puzzle-system-43851",
+    "relatedLinks": [
+        {
+            "text": "152 Users have favourite this asset",
+            "url": "https://assetstore.unity.com/packages/tools/utilities/trigger-puzzle-system-43851#reviews",
+            "iconType": "like"
+        }
+    ],
+    "tags": [
+        "HTML",
+        "Javascript",
+        "CSS"
+    ],
+    "picture": "@/content/projects/triggerpuzzle.webp"
+}

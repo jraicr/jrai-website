@@ -1,0 +1,23 @@
+{
+    "name": "GIPL",
+    "description": [
+        "Web app to manage incidents in computer classrooms. Configuration of users, roles and privileges. Inventory management and classroom equipment, management of students, computer equipment, incidents and monitoring of their status."
+    ],
+    "url": "https://rai.departamentoinformaticajmpp.com/gipl",
+    "relatedLinks": [
+        {
+            "text": "Repository",
+            "url": "https://github.com/jraicr/gipl",
+            "iconType": "github"
+        }
+    ],
+    "tags": [
+        "PHP",
+        "Laravel",
+        "AdminLTE",
+        "Bootstrap",
+        "MariaDB",
+        "Docker"
+    ],
+    "picture": "@/content/projects/gipl.webp"
+}
