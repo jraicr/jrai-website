@@ -1,10 +1,11 @@
 ---
-import ExperienceEntry from "../ExperienceEntry.astro";
-import TechLabel from "../TechLabel.astro";
-import RelatedLink from "../RelatedLink.astro";
-import ViewFullLink from "../ViewFullLink.astro";
+// import ExperienceEntry from "../ExperienceEntry.astro";
+import ExperienceEntry from "@/components/ExperienceEntry.astro";
+import TechLabel from "@/components/TechLabel.astro";
+import RelatedLink from "@/components/RelatedLink.astro";
+import ViewFullLink from "@/components/ViewFullLink.astro";
 
-import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 

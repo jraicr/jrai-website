@@ -1,16 +1,16 @@
 ---
-import ProjectEntry from "../ProjectEntry.astro";
-import RelatedLink from "../RelatedLink.astro";
-import TechLabel from "../TechLabel.astro";
-import ViewFullLink from "../ViewFullLink.astro";
-import PlaceholderImage from "../../images/placeholder.png";
-import ProjectGIPLImage from "../../images/project-gipl.webp";
-import ProjectTopTwitchImage from "../../images/project-top-Twitch.webp";
-import ProjectDockerDevTmage from "../../images/project-docker-dev.webp";
-import ProjectFourFramesImage from "../../images/project-four-frames.webp";
-import ProjectPuzzleSystemImage from "../../images/project-trigger-puzzle.webp";
+import ProjectEntry from "@/components/ProjectEntry.astro";
+import RelatedLink from "@/components/RelatedLink.astro";
+import TechLabel from "@/components/TechLabel.astro";
+import ViewFullLink from "@/components/ViewFullLink.astro";
+import PlaceholderImage from "@/images/placeholder.png";
+import ProjectGIPLImage from "@/images/project-gipl.webp";
+import ProjectTopTwitchImage from "@/images/project-top-Twitch.webp";
+import ProjectDockerDevTmage from "@/images/project-docker-dev.webp";
+import ProjectFourFramesImage from "@/images/project-four-frames.webp";
+import ProjectPuzzleSystemImage from "@/images/project-trigger-puzzle.webp";
 
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
