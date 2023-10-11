@@ -36,6 +36,10 @@ const t = useTranslations(lang);
         <p class="tagline">{tagline}</p>
 
         <HeaderNav />
+        <div class="language-switch-container">
+            <span><a href="/es">ES</a></span><br />
+            <span><a href="/en">EN</a></span>
+        </div>
     </div>
 
     <!-- SOCIAL ICONS -->
@@ -168,15 +172,36 @@ const t = useTranslations(lang);
 </style>
 
 <script>
-    let greetingLine = document.querySelector(".greeting-line");
-    let runningAnimation = false;
+    listenForGreetingClick();
 
-    greetingLine?.addEventListener("click", () => {
+    document.addEventListener('astro:after-swap', listenForGreetingClick);
+
+    function listenForGreetingClick() {
+        let greetingLineElement = document.querySelector<Element>(".greeting-line");
+        
+        
+        if (!greetingLineElement) {
+            console.error(greetingLineElement, "No se ha encontrado ningún elemento con la clase .greeting-line.");
+            return;
+        }
+
+        greetingLineElement.addEventListener("click", () => {
+            playGreetingAnim(greetingLineElement);
+        });
+    }
+    /**
+     * 
+     * @param greetingElement 
+     */
+    function playGreetingAnim(greetingElement: Element | null) {
+
+        let runningAnimation = false;
+
         if (!runningAnimation) {
             runningAnimation = true;
-            greetingLine?.classList.add("greeting-line-animation");
+            greetingElement?.classList.add("greeting-line-animation");
 
-            let animDurationInSeconds = greetingLine
+            let animDurationInSeconds = greetingElement
                 ?.computedStyleMap()
                 .get("animation-duration") as CSSUnitValue;
 
@@ -184,11 +209,11 @@ const t = useTranslations(lang);
             let durationOffset = 250;
 
             setTimeout(() => {
-                removeAnimation(greetingLine, "greeting-line-animation");
+                removeAnimation(greetingElement, "greeting-line-animation");
                 runningAnimation = false;
             }, animDurationInMiliseconds + durationOffset);
         }
-    });
+    }
 
     function removeAnimation(e: Element | null, animationName: string) {
         if (e) {
