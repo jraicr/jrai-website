@@ -175,6 +175,7 @@ const t = useTranslations(lang);
 </style>
 
 <script>
+    let runningAnimation = false;
     listenForGreetingClick();
 
     document.addEventListener("astro:after-swap", listenForGreetingClick);
@@ -195,12 +196,8 @@ const t = useTranslations(lang);
             playGreetingAnim(greetingLineElement);
         });
     }
-    /**
-     *
-     * @param greetingElement
-     */
+
     function playGreetingAnim(greetingElement: Element | null) {
-        let runningAnimation = false;
 
         if (!runningAnimation) {
             runningAnimation = true;

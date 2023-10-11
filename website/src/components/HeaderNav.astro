@@ -114,10 +114,6 @@ const t = useTranslations(lang);
         const sections = document.querySelectorAll("section");
         const navLinks = document.querySelectorAll(".header-nav-link");
 
-        window.onload = () => {
-            updateNavLink(sections, navLinks);
-        };
-
         window.onscroll = () => {
             updateNavLink(sections, navLinks);
         };
