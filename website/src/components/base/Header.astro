@@ -3,6 +3,7 @@ import GithubIcon from "@/components/social-icons/github.astro";
 import TwitterIcon from "@/components/social-icons/twitter.astro";
 import LinkedinIcon from "@/components/social-icons/linkedin.astro";
 import HeaderNav from "@/components/HeaderNav.astro";
+import LanguageSwitcher from "@/components/LanguageSwitcher.astro";
 
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
@@ -24,6 +25,8 @@ const t = useTranslations(lang);
 
 <header>
     <div>
+        <!-- HEADER -->
+        <span>
         <p class="greeting-line">{t("header.greeting")}</p>
         <h1>
             <a href="/"
@@ -35,11 +38,11 @@ const t = useTranslations(lang);
         <h2>{subtitle}</h2>
         <p class="tagline">{tagline}</p>
 
+        <!-- LANGUAGE SWITCHER -->
+        <!-- <LanguageSwitcher /> -->
+
+        <!-- NAV -->
         <HeaderNav />
-        <div class="language-switch-container">
-            <span><a href="/es">ES</a></span><br />
-            <span><a href="/en">EN</a></span>
-        </div>
     </div>
 
     <!-- SOCIAL ICONS -->
@@ -174,14 +177,17 @@ const t = useTranslations(lang);
 <script>
     listenForGreetingClick();
 
-    document.addEventListener('astro:after-swap', listenForGreetingClick);
+    document.addEventListener("astro:after-swap", listenForGreetingClick);
 
     function listenForGreetingClick() {
-        let greetingLineElement = document.querySelector<Element>(".greeting-line");
-        
-        
+        let greetingLineElement =
+            document.querySelector<Element>(".greeting-line");
+
         if (!greetingLineElement) {
-            console.error(greetingLineElement, "No se ha encontrado ningún elemento con la clase .greeting-line.");
+            console.error(
+                greetingLineElement,
+                "No se ha encontrado ningún elemento con la clase .greeting-line.",
+            );
             return;
         }
 
@@ -190,11 +196,10 @@ const t = useTranslations(lang);
         });
     }
     /**
-     * 
-     * @param greetingElement 
+     *
+     * @param greetingElement
      */
     function playGreetingAnim(greetingElement: Element | null) {
-
         let runningAnimation = false;
 
         if (!runningAnimation) {

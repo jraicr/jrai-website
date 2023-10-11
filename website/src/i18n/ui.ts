@@ -17,9 +17,11 @@ export const ui = {
         'link.resume.last': 'Résumé',
         'link.projects.partial': 'View Full',
         'link.projects.last': 'Archive',
+        'language.indicator': 'You are reading this site in',
     },
 
     es: {
+        'language.indicator': 'Estás leyendo este sitio en',
         'header.greeting': 'Hola!',
         'header.iam': 'Soy',
         'nav.about': 'Sobre mí',

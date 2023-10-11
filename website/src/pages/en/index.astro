@@ -4,6 +4,7 @@ import Header from "@/components/base/Header.astro";
 import About from "@/components/base/About.astro";
 import Experience from "@/components/base/Experience.astro";
 import Projects from "@/components/base/Projects.astro";
+import LanguageSwitcher from "@/components/LanguageSwitcher.astro";
 ---
 
 <BaseLayout title="J. Rai" lang="en">
@@ -20,6 +21,7 @@ import Projects from "@/components/base/Projects.astro";
                 />
 
                 <main id="content-container" class="content-wrapper">
+                    <LanguageSwitcher />
                     <About />
                     <Experience />
                     <Projects />
