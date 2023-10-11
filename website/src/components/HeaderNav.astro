@@ -107,21 +107,28 @@ const t = useTranslations(lang);
 </style>
 
 <script>
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll(".header-nav-link");
+    beginScrollWatcher();
+    document.addEventListener("astro:after-swap", beginScrollWatcher);
+    
+    function beginScrollWatcher() {
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".header-nav-link");
 
-    window.onload = () => {
-        updateNavLink();
-    };
+        window.onload = () => {
+            updateNavLink(sections, navLinks);
+        };
 
-    window.onscroll = () => {
-        updateNavLink();
-    };
+        window.onscroll = () => {
+            updateNavLink(sections, navLinks);
+        };
 
-    function updateNavLink() {
+        updateNavLink(sections, navLinks);
+    }
+
+    function updateNavLink(sections: NodeListOf<HTMLElement>, navLinks: NodeListOf<Element>) {
         sections.forEach((section) => {
             let top = window.scrollY;
-            let offset = section.offsetTop - 150;
+            let offset = section.offsetTop - 155;
             let height = section.offsetHeight;
 
             let id = section.getAttribute("id");
@@ -129,8 +136,7 @@ const t = useTranslations(lang);
             if (top >= offset && top < offset + height) {
                 navLinks.forEach((link) => {
                     link.classList.remove("active");
-                    let i = 
-                    document
+                    let i = document
                         .querySelector(`.header-nav-link[href*=${id}]`)
                         ?.classList.add("active");
                 });
