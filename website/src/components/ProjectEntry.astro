@@ -50,6 +50,34 @@ const { name, image, alt, url } = Astro.props;
 </li>
 
 <style>
+    .project-image {
+        color: transparent;
+        border-color: var(--image-border);
+        border-width: 2px;
+        border-radius: 0.25rem;
+
+        transition-property:
+            color,
+            background-color,
+            border-color,
+            text-decoration-color,
+            fill,
+            stroke,
+            opacity,
+            box-shadow,
+            transform,
+            filter,
+            backdrop-filter,
+            -webkit-backdrop-filter;
+
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 0.15s;
+    }
+
+    .content-container:hover .project-image {
+        border-color: var(--image-border-hover);
+    }
+
     @media (min-width: 640px) {
         .project-image {
             transform: translate(0, 0.25rem) rotate(0) skewX(0) skewY(0)
