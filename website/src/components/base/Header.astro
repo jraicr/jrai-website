@@ -4,7 +4,7 @@ import TwitterIcon from "@/components/social-icons/twitter.astro";
 import LinkedinIcon from "@/components/social-icons/linkedin.astro";
 import HeaderNav from "@/components/HeaderNav.astro";
 
-import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 interface Props {
     title: string;
@@ -126,11 +126,6 @@ const t = useTranslations(lang);
     .highlight {
         color: hsl(46, 100%, 50%);
     }
-
-    /* .highlight::before {
-        display: inline;
-        content: ' ';
-    } */
 
     .social-icons-list {
         display: flex;
