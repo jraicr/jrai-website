@@ -48,7 +48,6 @@ let animationFrameId : number | null = null;
 let isGradientMoving = false;
 
 startGradientEffect();
-
 document.addEventListener("astro:after-swap", awakeGradientEffect);
 
 function awakeGradientEffect() {
@@ -60,7 +59,6 @@ function startGradientEffect() {
     let currentScreenWidth = window.innerWidth;
 
     if (currentScreenWidth >= 1024) {
-        currentGradientPosition = { x: 0, y: 0 };
         onMouseMovementUpdateTargetGradientPos();
         onScrollCenterGradient();
         updateGradientPosition();
@@ -72,9 +70,11 @@ function startGradientEffect() {
  */
 function onMouseMovementUpdateTargetGradientPos() {
     gradientContainer?.addEventListener("mousemove", (e: MouseEvent) => {
-            targetGradientPosition = { x: e.pageX, y: e.pageY };
-        });
+        targetGradientPosition = { x: e.pageX, y: e.pageY };
+        restartAnimation();
+    });
 }
+
 /**
 *  Actualiza la posición objetivo del gradiente para que sea
 *  el centro de la ventana visible cada vez que se hace scroll.
@@ -85,6 +85,7 @@ function onScrollCenterGradient() {
             x: window.scrollX + (window.innerWidth / 2) + 250,
             y: window.scrollY + window.innerHeight / 2,
         };
+        restartAnimation();
     });
 }
 
@@ -102,9 +103,19 @@ function updateGradientPosition() {
         if (gradientContainer) {
             gradientContainer.style.background = `radial-gradient(600px circle at ${currentGradientPosition.x}px ${currentGradientPosition.y}px, hsla(274, 100%, 35%, 0.25), transparent 80%)`;
         }
+        
+        animationFrameId = requestAnimationFrame(updateGradientPosition);
+    
+    } else if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
     }
+}
 
-    animationFrameId = requestAnimationFrame(updateGradientPosition);
+function restartAnimation() {
+    if (!isGradientMoving && !animationFrameId) {
+        updateGradientPosition();
+    }
 }
 
 function interpolate(currentPosition, targetPosition, factor) {
