@@ -40,13 +40,15 @@ const { title, lang } = Astro.props;
         <slot />
     </body>
 </html>
-<script lang="js">
-let gradientContainer = document.querySelector(".gradient-container");
+<script>
+let gradientContainer = document.querySelector<HTMLElement>(".gradient-container");
 let currentGradientPosition = { x: 0, y: 0 };
 let targetGradientPosition = { x: 0, y: 0 };
+let animationFrameId : number | null = null;
+let isGradientMoving = false;
 
 startGradientEffect();
-updateGradientPosition();
+
 document.addEventListener("astro:after-swap", awakeGradientEffect);
 
 function awakeGradientEffect() {
@@ -61,6 +63,7 @@ function startGradientEffect() {
         currentGradientPosition = { x: 0, y: 0 };
         onMouseMovementUpdateTargetGradientPos();
         onScrollCenterGradient();
+        updateGradientPosition();
     }
 }
 
@@ -68,7 +71,7 @@ function startGradientEffect() {
  * Actualiza la posición del gradiente a la posición del puntero del mouse.
  */
 function onMouseMovementUpdateTargetGradientPos() {
-    gradientContainer?.addEventListener("mousemove", (e) => {
+    gradientContainer?.addEventListener("mousemove", (e: MouseEvent) => {
             targetGradientPosition = { x: e.pageX, y: e.pageY };
         });
 }
@@ -86,8 +89,11 @@ function onScrollCenterGradient() {
 }
 
 function updateGradientPosition() {
-    if (Math.abs(currentGradientPosition.x - targetGradientPosition.x,) > 1 ||
-     Math.abs(currentGradientPosition.y - targetGradientPosition.y,) > 1) {
+    isGradientMoving = (Math.abs(currentGradientPosition.x - targetGradientPosition.x,) > 1 || Math.abs(currentGradientPosition.y - targetGradientPosition.y,) > 1);
+    
+    //console.log(`Is gradient moving?: ${isGradientMoving}`, currentGradientPosition);
+
+    if (isGradientMoving) {
         currentGradientPosition = interpolate(currentGradientPosition,
             targetGradientPosition,
             0.07,
@@ -97,7 +103,8 @@ function updateGradientPosition() {
             gradientContainer.style.background = `radial-gradient(600px circle at ${currentGradientPosition.x}px ${currentGradientPosition.y}px, hsla(274, 100%, 35%, 0.25), transparent 80%)`;
         }
     }
-    requestAnimationFrame(updateGradientPosition);
+
+    animationFrameId = requestAnimationFrame(updateGradientPosition);
 }
 
 function interpolate(currentPosition, targetPosition, factor) {
