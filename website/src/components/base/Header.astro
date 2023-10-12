@@ -27,32 +27,33 @@ const t = useTranslations(lang);
     <div>
         <!-- HEADER -->
         <span>
-        <p class="greeting-line">{t("header.greeting")}</p>
-        <h1>
-            <a href=""
-                >{t("header.iam")}&nbsp;<span class="highlight">
-                    {title}</span
-                ></a
-            >
-        </h1>
-        <h2>{subtitle}</h2>
-        <p class="tagline">{tagline}</p>
+            <p class="greeting-line">{t("header.greeting")}</p>
+            <h1>
+                <a href=""
+                    >{t("header.iam")}&nbsp;<span class="highlight">
+                        {title}</span
+                    ></a
+                >
+            </h1>
+            <h2>{subtitle}</h2>
+            <p class="tagline">{tagline}</p>
 
-        <!-- LANGUAGE SWITCHER -->
-        <!-- <LanguageSwitcher /> -->
-
-        <!-- NAV -->
-        <HeaderNav />
+            <!-- NAV -->
+            <HeaderNav />
+        </span>
     </div>
 
-    <!-- SOCIAL ICONS -->
-    <ul class="social-icons-list">
-        <GithubIcon username={githubUser} />
-        <TwitterIcon username={twitterUser} />
-        <LinkedinIcon username={linkedinUser} />
-    </ul>
+    <div>
+        <!-- SOCIAL ICONS -->
+        <ul class="social-icons-list">
+            <GithubIcon username={githubUser} />
+            <TwitterIcon username={twitterUser} />
+            <LinkedinIcon username={linkedinUser} />
+        </ul>
+        <!-- LANGUAGE SWITCHER -->
+        <LanguageSwitcher />
+    </div>
 </header>
-
 <style>
     h1 {
         font-size: 2.25rem;
@@ -172,6 +173,11 @@ const t = useTranslations(lang);
             justify-content: space-between;
         }
     }
+
+    .social-icons-list {
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+    }
 </style>
 
 <script>
@@ -182,32 +188,21 @@ const t = useTranslations(lang);
 
     function listenForGreetingClick() {
         let greetingLineElement =
-            document.querySelector<Element>(".greeting-line");
+            document.querySelector<HTMLElement>(".greeting-line");
 
-        if (!greetingLineElement) {
-            console.error(
-                greetingLineElement,
-                "No se ha encontrado ningún elemento con la clase .greeting-line.",
-            );
-            return;
-        }
-
-        greetingLineElement.addEventListener("click", () => {
-            playGreetingAnim(greetingLineElement);
+        greetingLineElement?.addEventListener("click", () => {
+            playGreetingAnim(greetingLineElement as HTMLElement);
         });
     }
 
-    function playGreetingAnim(greetingElement: Element | null) {
-
+    function playGreetingAnim(greetingElement: HTMLElement) {
         if (!runningAnimation) {
             runningAnimation = true;
-            greetingElement?.classList.add("greeting-line-animation");
+            greetingElement.classList.add("greeting-line-animation");
 
-            let animDurationInSeconds = greetingElement
-                ?.computedStyleMap()
-                .get("animation-duration") as CSSUnitValue;
-
-            let animDurationInMiliseconds = animDurationInSeconds.value * 1000;
+            let greetingStyle = window.getComputedStyle(greetingElement);
+            let animDurationInSeconds = parseFloat(greetingStyle.getPropertyValue("animation-duration")) ;
+            let animDurationInMiliseconds = animDurationInSeconds * 1000;
             let durationOffset = 250;
 
             setTimeout(() => {
