@@ -1,12 +1,30 @@
-<h1>Redirecting...</h1>
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/base/Header.astro";
+import About from "@/components/base/About.astro";
+import Experience from "@/components/base/Experience.astro";
+import Projects from "@/components/base/Projects.astro";
+---
 
-<script>
-    const DEFAULT_PAGE = "/en";
-    const SPANISH_PAGE = "/es";
-    const SPANISH_LOCALE = "es";
+<BaseLayout title="J. Rai">
+    <div class="gradient-container">
+        <div class="main-wrapper">
+            <div class="main-flex-container">
+                <Header
+                    title="J. Rai"
+                    subtitle="Desarrollador Full Stack y Videojuegos"
+                    tagline="Construyo experiencias multimedia interactivas centradas en el usuario."
+                    githubUser="jraicr"
+                    twitterUser="JRaiDev"
+                    linkedinUser="SIN CONFIGURAR"
+                />
 
-    let userLocale = Intl.DateTimeFormat().resolvedOptions().locale;
-    let targetPage = userLocale.includes(SPANISH_LOCALE) ? SPANISH_PAGE : DEFAULT_PAGE
-
-    window.location.replace(targetPage);
-</script>
+                <main id="content-container" class="content-wrapper">
+                    <About />
+                    <Experience />
+                    <Projects />
+                </main>
+            </div>
+        </div>
+    </div>
+</BaseLayout>

@@ -1,0 +1,10 @@
+<script>
+    const ENGLISH_PAGE = "/es";
+    const ENGLISH_LOCALE = "en";
+
+    let userLocale = Intl.DateTimeFormat().resolvedOptions().locale;
+
+    if (userLocale == ENGLISH_LOCALE) {
+        window.location.replace(ENGLISH_PAGE);
+    }
+</script>
