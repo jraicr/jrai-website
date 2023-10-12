@@ -38,39 +38,75 @@ const { title, lang } = Astro.props;
     </head>
     <body>
         <slot />
-        <script>
-            startGradientEffect();
-
-            document.addEventListener('astro:after-swap', startGradientEffect);
-
-            function startGradientEffect() {
-                let gradientContainer = document.querySelector(
-                    ".gradient-container",
-                );
-
-                let gradientMoveFromOrigin = false;
-
-                gradientContainer.addEventListener("mousemove", (e) => {
-                    updateGradientPosition(e, gradientContainer);
-                });
-            }
-
-            function updateGradientPosition(e, gradientContainer) {
-                let currentScreenWidth = window.innerWidth;
-                let gradientMoveFromOrigin = false;
-
-                if (currentScreenWidth >= 1024) {
-                    gradientMoveFromOrigin = true;
-                    gradientContainer.style.background = `radial-gradient(600px circle at ${e.pageX}px ${e.pageY}px, hsla(274, 100%, 35%, 0.25), transparent 80%)`;
-                } else if (
-                    currentScreenWidth < 1024 &&
-                    gradientMoveFromOrigin
-                ) {
-                    gradientContainer.style.background = `radial-gradient(600px circle at 0px 0px, hsla(274, 100%, 35%, 0.25), transparent 80%)`;
-                    gradientContainer.style.backgroundAttachment = "fixed";
-                    gradientMoveFromOrigin = false;
-                }
-            }
-        </script>
     </body>
 </html>
+<script lang="js">
+let gradientContainer = document.querySelector(".gradient-container");
+let currentGradientPosition = { x: 0, y: 0 };
+let targetGradientPosition = { x: 0, y: 0 };
+
+startGradientEffect();
+updateGradientPosition();
+document.addEventListener("astro:after-swap", awakeGradientEffect);
+
+function awakeGradientEffect() {
+    gradientContainer = document.querySelector(".gradient-container");
+    startGradientEffect();
+}
+
+function startGradientEffect() {
+    let currentScreenWidth = window.innerWidth;
+
+    if (currentScreenWidth >= 1024) {
+        currentGradientPosition = { x: 0, y: 0 };
+        onMouseMovementUpdateTargetGradientPos();
+        onScrollCenterGradient();
+    }
+}
+
+/**
+ * Actualiza la posición del gradiente a la posición del puntero del mouse.
+ */
+function onMouseMovementUpdateTargetGradientPos() {
+    gradientContainer?.addEventListener("mousemove", (e) => {
+            targetGradientPosition = { x: e.pageX, y: e.pageY };
+        });
+}
+/**
+*  Actualiza la posición objetivo del gradiente para que sea
+*  el centro de la ventana visible cada vez que se hace scroll.
+*/
+function onScrollCenterGradient() {
+    window.addEventListener("scroll", (e) => {
+        targetGradientPosition = {
+            x: window.scrollX + (window.innerWidth / 2) + 250,
+            y: window.scrollY + window.innerHeight / 2,
+        };
+    });
+}
+
+function updateGradientPosition() {
+    if (Math.abs(currentGradientPosition.x - targetGradientPosition.x,) > 1 ||
+     Math.abs(currentGradientPosition.y - targetGradientPosition.y,) > 1) {
+        currentGradientPosition = interpolate(currentGradientPosition,
+            targetGradientPosition,
+            0.07,
+        );
+        
+        if (gradientContainer) {
+            gradientContainer.style.background = `radial-gradient(600px circle at ${currentGradientPosition.x}px ${currentGradientPosition.y}px, hsla(274, 100%, 35%, 0.25), transparent 80%)`;
+        }
+    }
+    requestAnimationFrame(updateGradientPosition);
+}
+
+function interpolate(currentPosition, targetPosition, factor) {
+    let dx = targetPosition.x - currentPosition.x;
+    let dy = targetPosition.y - currentPosition.y;
+    
+    return {
+        x: currentPosition.x + dx * factor,
+        y: currentPosition.y + dy * factor,
+    };
+}
+</script>
