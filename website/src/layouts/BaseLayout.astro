@@ -18,9 +18,9 @@ const { title } = Astro.props;
         <meta charset="UTF-8" />
         <meta name="description" content="Astro description" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="generator" content={Astro.generator} />
 
+        <!-- Fonts -->
+        <!--TODO: Hostear las fuentes en el sitio -->
         <link rel="preconnect" href="https://rsms.me/" crossorigin />
 
         <link
@@ -34,6 +34,14 @@ const { title } = Astro.props;
         <noscript>
             <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         </noscript>
+
+                
+          <!-- Favicon -->
+        <link rel="icon" href="/icons/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+        <link rel="manifest" href="/icons/site.webmanifest">
+
+        <meta name="generator" content={Astro.generator} />
 
         <title>{title}</title>
         <ViewTransitions />
