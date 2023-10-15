@@ -2,13 +2,14 @@
 interface Props {
     partialText: string;
     lastWord: string;
+    href: string;
 }
 
-const { partialText, lastWord } = Astro.props;
+const { partialText, lastWord, href } = Astro.props;
 ---
 
 <div>
-    <a class="view-full-link" href="curriculum.pdf">
+    <a class="view-full-link" href={href}>
         <span>
             <span class="partial-text">{partialText}&nbsp;</span>
 
