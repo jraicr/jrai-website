@@ -3,7 +3,7 @@
     "description": [
         "Web game where you have to guess the movie through up to 4 frames. Each attemp unlocks a new frame until you reach the last one."
     ],
-    "url": "https://4-frames-prototype.vercel.app",
+    "url": "https://4frames.jrai.dev",
     "relatedLinks": [
         {
             "text": "Repository",
