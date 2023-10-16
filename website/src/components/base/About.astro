@@ -1,48 +1,32 @@
 ---
-import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { getEntry } from "astro:content";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const aboutEntry = await getEntry("about", `${lang}/about`);
+const { Content } = await aboutEntry.render();
 ---
 
 <section id="about" class="content" aria-label="About me">
     <div class="content-title sr-only">
-        <h2>{t('nav.about')}</h2>
+        <h2>{t("nav.about")}</h2>
     </div>
 
-    <div>
-        <p class="about-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit
-            amet porttitor nulla. Sed interdum euismod facilisis. Ut orci arcu,
-            consectetur vitae lectus vestibulum, cursus aliquam tellus. Sed
-            porta pharetra orci, et mollis dolor viverra vel. Fusce orci lectus,
-            placerat a diam maximus, porta aliquam libero. Vivamus sollicitudin
-            laoreet efficitur. Suspendisse vehicula diam a ex maximus
-            pellentesque. Integer ut nisi augue. Praesent nisl purus, faucibus
-            in est id, feugiat finibus lectus. Cras pharetra ac dolor ac
-            condimentum. Etiam eu feugiat sem. Cras mollis erat eu lectus
-            lacinia iaculis. Etiam suscipit varius justo id molestie. Etiam
-            vitae orci consectetur, aliquet diam quis, aliquet leo. Morbi
-            suscipit dictum facilisis. Duis non vulputate erat.
-        </p>
-
-        <p class="about-text">
-            Vestibulum id ex placerat, dignissim elit ut, mollis magna. Nunc sit
-            amet ipsum felis. Quisque malesuada scelerisque aliquam. Vestibulum
-            eget vestibulum nunc, id lacinia nisi. Nunc id vehicula odio.
-            Quisque fermentum tellus at tincidunt consectetur.
-        </p>
-
-        <p class="about-text">
-            Sed lacinia nibh quis augue tincidunt egestas. Suspendisse nec
-            tristique elit. Donec tortor tellus, volutpat a ante nec, dictum
-            ornare purus.
-        </p>
+    <div class="about-content">
+        <Content>
     </div>
 </section>
 
-<style>
-    .about-text {
-        margin-bottom: 1rem;
+<style is:inline>
+    .about-content p {
+        margin-bottom: 1rem !important;
+    }
+
+    a:hover {
+        color: var(--hover-link-color);
     }
 </style>
+
+

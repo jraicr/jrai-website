@@ -1,0 +1,5 @@
+Back in 2009, I started progamming missions and tools for ArmA 2 players and developers. Since then, I have worked on various companies and projects of my own. I had the privilege of managing systems and developing solutions for a [security company](https://pycseca.com), creating my own [commercial solutions for Unity](https://assetstore.unity.com/publishers/15679), and working at a [huge scientific corporation](https://www.cta-observatory.org/about/locations/ctao-north/).
+
+My main goal is to develop web applications and tools for clients and businesses. In my free time, I work on developing the commercial version of 4 Frames, a challenging web game where you have to guess a movie through up to 4 frames.
+
+When I'm not at the computer, I'm at the beach, watching some series with my wife, or plotting against Ganondorf.
