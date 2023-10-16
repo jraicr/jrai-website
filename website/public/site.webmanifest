@@ -1,6 +1,9 @@
 {
-    "name": "J. Rai Website",
-    "short_name": "J. Rai",
+    "name": "J. Rai",
+    "short_name": "Rai",
+    "description": "El portfolio personal de J. Rai",
+    "start_url": "/",
+    "lang": "es-ES",
     "icons": [
         {
             "src": "/icons/android-chrome-192x192.png",
@@ -10,10 +13,11 @@
         {
             "src": "/icons/android-chrome-512x512.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#170e25",
+    "background_color": "#170e25",
     "display": "standalone"
 }
