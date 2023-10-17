@@ -2,6 +2,7 @@ const { builtinModules } = require('module');
 
 module.exports = {
     // Configuration for JavaScript files
+    "extends": ['plugin:astro/recommended'],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         // "project": "./tsconfig.json",
@@ -17,6 +18,7 @@ module.exports = {
                 "*.cjs"
             ],
             "rules": {
+                // Tus reglas aquí
 
             }
         },
