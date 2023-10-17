@@ -1,11 +1,11 @@
 ---
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
-import { getEntry } from "astro:content";
+import { getEntry, type CollectionEntry} from "astro:content";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const aboutEntry = await getEntry("about", `${lang}/about`);
+const aboutEntry: CollectionEntry<"about"> = await getEntry("about", `${lang}/about`);
 const { Content } = await aboutEntry.render();
 ---
 
