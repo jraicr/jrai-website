@@ -20,6 +20,16 @@
     border: 0 solid #e5e7eb;
 }
 
+::-moz-selection { /* Code for Firefox */
+    color: black;
+    background: var(--hover-link-color);
+  }
+  
+  ::selection {
+    color: black;
+    background: var(--hover-link-color);
+  }
+
 html {
     scroll-behavior: smooth;
 
