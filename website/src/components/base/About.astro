@@ -15,18 +15,109 @@ const { Content } = await aboutEntry.render();
     </div>
 
     <div class="about-content">
-        <Content>
+        <Content />
     </div>
+
+    <style is:inline>
+        .about-content p {
+            margin-bottom: 1rem !important;
+        }
+
+        .about-content a:hover {
+            color: var(--hover-link-color);
+        }
+
+        .ganon-word {
+            color: var(--link-color);
+            transition: all 0.25s ease;
+        }
+
+        .ganon-word:hover {
+            background-color: var(--hover-link-color);
+            color: black;
+            font-weight: 600;
+            padding: 4px;
+        }
+
+        .anim {
+            display: none;
+            position: absolute;
+            width: 125px;
+            transform: translate(-235px, 0px);
+            z-index: -1;
+        }
+
+        .anim-play {
+            display: block;
+            opacity: 0;
+            animation-name: running-anim;
+            animation-duration: 2s;
+            animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+            transition: all;
+        }
+
+        @keyframes running-anim {
+            0% {
+                transform: translate(-235px, 0px) rotate(0deg) skewX(0) skewY(0)
+                    scaleX(1) scaleY(1);
+                opacity: 0%;
+            }
+
+            5% {
+                opacity: 100%;
+            }
+
+            89% {
+                opacity: 100%;
+            }
+
+            90% {
+                opacity: 75%;
+            }
+
+            100% {
+                transform: translate(1030px, -10px) rotate(0deg) skewX(0)
+                    skewY(0) scaleX(1) scaleY(1);
+                opacity: 0%;
+                display: none;
+            }
+        }
+
+        .hide-scroll-temporal-overflow {
+            overflow-x: hidden;
+        }
+    </style>
 </section>
 
-<style is:inline>
-    .about-content p {
-        margin-bottom: 1rem !important;
+<script>
+    listenMouseOverGanon();
+    document.addEventListener("astro:after-swap", listenMouseOverGanon);
+
+    function listenMouseOverGanon() {
+        if (window.innerWidth >= 1024) {
+            let playingAnim = false;
+
+            document
+                .querySelector(".ganon-word")?.addEventListener("mouseover", function () {
+                    let animDiv = document.querySelector(".anim");
+                    let body = document.body;
+
+                    if (!playingAnim) {
+                        playingAnim = true;
+
+                        animDiv?.classList.add("anim-play");
+                        body.classList.add("hide-scroll-temporal-overflow");
+
+                        setTimeout(() => {
+                            playingAnim = false;
+                            animDiv?.classList.remove("anim-play");
+                            body.classList.remove(
+                                "hide-scroll-temporal-overflow",
+                            );
+                        }, 2100);
+                    }
+                });
+        }
     }
 
-    .about-content a:hover {
-        color: var(--hover-link-color);
-    }
-</style>
-
-
+</script>
