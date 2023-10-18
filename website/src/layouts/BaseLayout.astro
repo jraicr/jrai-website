@@ -55,9 +55,7 @@ const { title } = Astro.props;
     </body>
 </html>
 <script>
-    let gradientContainer = document.querySelector<HTMLElement>(
-        ".gradient-container",
-    );
+    let gradientContainer = document.querySelector<HTMLElement>(".gradient-container" );
     let currentGradientPosition = { x: 0, y: 0 };
     let targetGradientPosition = { x: 0, y: 0 };
     let animationFrameId: number | null = null;
