@@ -1,0 +1,1 @@
+Este sitio se ha programado en <a href="https://code.visualstudio.com" target="_blank" rel="nofollow" rel="noopener">Visual Studio Code</a> utilizando las tecnologías <a href="https://astro.build" target="_blank" rel="nofollow" rel="noopener">Astro</a>, CSS y Javascript, desplegado con <a href="https://vercel.com" target="_blank" rel="nofollow" rel="noopener">Vercel</a>.

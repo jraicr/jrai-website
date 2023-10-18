@@ -18,7 +18,7 @@ const t = useTranslations(lang);
 
     <div class="c">
         <span class="language-indicator">{t("language.indicator")}&nbsp;</span>
-        <ul>
+        <ul class="lang-switch">
             {
                 (
                     <>
@@ -131,6 +131,21 @@ const t = useTranslations(lang);
         .language-switch-container {
             /* justify-content: start; */
             margin-top: 2rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .language-switch-container {
+            align-items: flex-end;
+        }
+
+        .lang-switch {
+            display: block;
+            transform: translate(0px, 1.31rem);
+        }
+
+        .c {
+            align-items: flex-end;
         }
     }
 </style>

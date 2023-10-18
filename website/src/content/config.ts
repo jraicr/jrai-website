@@ -1,9 +1,11 @@
 import { defineCollection, z } from 'astro:content';
+
 const aboutCollection = defineCollection({
     type: 'content'
-    // schema: z.object({
-    //      paragraphs: z.array(z.string())
-    // })
+});
+
+const footerCollection = defineCollection({
+    type: 'content'
 });
 
 const experienceCollection = defineCollection({
@@ -48,4 +50,5 @@ export const collections = {
     'experiences': experienceCollection,
     'projects': projectCollection,
     'about': aboutCollection,
+    'footer': footerCollection
 };

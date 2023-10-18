@@ -1,0 +1,1 @@
+This site was coded in <a href="https://code.visualstudio.com" target="_blank" rel="nofollow" rel="noopener">Visual Studio Code</a> and built using <a href="https://astro.build" target="_blank" rel="nofollow" rel="noopener">Astro</a>, CSS and Javascript. Deployed with <a href="https://vercel.com" target="_blank" rel="nofollow" rel="noopener">Vercel</a>.

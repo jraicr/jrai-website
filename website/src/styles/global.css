@@ -464,3 +464,32 @@ a .sr-only {
         transition-duration: 0.15s;
     }
 }
+
+
+footer {
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding-bottom: 4rem;
+}
+
+footer p a {
+    font-weight: 500;
+    color: hsl(264, 20%, 75%);
+}
+
+footer p a:hover {
+    color: var(--hover-link-color);
+}
+
+
+footer p {
+    color: var(--secondary-headline-color);
+}
+
+
+
+@media (min-width: 640px) {
+    footer {
+        padding-bottom: 0;
+    }
+}

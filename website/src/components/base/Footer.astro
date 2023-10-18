@@ -1,0 +1,14 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { getEntry, type CollectionEntry } from "astro:content";
+
+// Gestiones de idioma
+const lang = getLangFromUrl(Astro.url);
+
+const footerEntry: CollectionEntry<"footer"> = await getEntry("footer", `${lang}/footer`);
+const { Content } = await footerEntry.render();
+---
+
+<footer>
+<Content />
+</footer>
