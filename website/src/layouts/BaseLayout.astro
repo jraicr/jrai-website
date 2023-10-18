@@ -16,33 +16,53 @@ const { title } = Astro.props;
 <html lang={lang}>
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="J. Rai es un desarrollador full-stack y de videojuegos que construye experiencias multimedia interactivas." />
+        <meta
+            name="description"
+            content="J. Rai es un desarrollador full-stack y de videojuegos que construye experiencias multimedia interactivas."
+        />
         <meta name="viewport" content="width=device-width" />
 
         <!-- og  -->
-        <meta property="og:locale" content="es_ES">
+        <meta property="og:locale" content="es_ES" />
         <meta property="og:locale:alternate" content="en_US" />
-        <meta property="og:site_name" content="J. Rai">
-        <meta property="og:type" content="website">
-        <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:creator" content="@jraidev">
-        <meta property="twitter:site" content="@jraidev">
-        <meta property="og:title" content="J. Rai">
-        <meta property="og:description" content="J. Rai es un desarrollador full stack y de videojuegos que construye experiencias multimedia interactivas.">
-        <meta property="og:url" content="https://jrai.dev/">
-        <meta property="og:image" content="https://jrai.dev/og.png">
-        <meta property="twitter:title" content="J. Rai">
-        <meta property="twitter:description" content="J. Rai es un desarrollador full stack y de videojuegos que construye experiencias multimedia interactivas.">
-        <meta property="twitter:url" content="https://jrai.dev/">
-        <meta property="twitter:image" content="https://jrai.dev/og.png">
+        <meta property="og:site_name" content="J. Rai" />
+        <meta property="og:type" content="website" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:creator" content="@jraidev" />
+        <meta property="twitter:site" content="@jraidev" />
+        <meta property="og:title" content="J. Rai" />
+        <meta
+            property="og:description"
+            content="J. Rai es un desarrollador full stack y de videojuegos que construye experiencias multimedia interactivas."
+        />
+        <meta property="og:url" content="https://jrai.dev/" />
+        <meta property="og:image" content="https://jrai.dev/og.png" />
+        <meta property="twitter:title" content="J. Rai" />
+        <meta
+            property="twitter:description"
+            content="J. Rai es un desarrollador full stack y de videojuegos que construye experiencias multimedia interactivas."
+        />
+        <meta property="twitter:url" content="https://jrai.dev/" />
+        <meta property="twitter:image" content="https://jrai.dev/og.png" />
 
         <!-- CSS Fonts -->
-        <link rel="stylesheet" href="/styles/fonts.css" media="print" onload="this.media = 'all'" />
+        <link
+            rel="stylesheet"
+            href="/styles/fonts.css"
+            media="print"
+            onload="
+            this.media = 'all'
+"
+        />
 
         <!-- Favicon -->
         <link rel="icon" href="/icons/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
-        
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/icons/apple-touch-icon.png"
+        />
+
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#170e25" />
         <meta name="generator" content={Astro.generator} />
@@ -51,11 +71,18 @@ const { title } = Astro.props;
         <ViewTransitions />
     </head>
     <body>
-        <slot />
+        <div class="web-container">
+            <div class="gradient-container"></div>
+            <div class="main-wrapper">
+                <slot />
+            </div>
+        </div>
     </body>
 </html>
 <script>
-    let gradientContainer = document.querySelector<HTMLElement>(".gradient-container" );
+    let gradientContainer = document.querySelector<HTMLElement>(".gradient-container");
+    let webContainer = document.querySelector<HTMLElement>(".web-container");
+
     let currentGradientPosition = { x: 0, y: 0 };
     let targetGradientPosition = { x: 0, y: 0 };
     let animationFrameId: number | null = null;
@@ -71,6 +98,7 @@ const { title } = Astro.props;
      */
     function awakeGradientEffect() {
         gradientContainer = document.querySelector(".gradient-container");
+        webContainer = document.querySelector<HTMLElement>(".web-container");
         startGradientEffect();
     }
 
@@ -104,12 +132,13 @@ const { title } = Astro.props;
      * gradiente a la posición del puntero del ratón.
      */
     function onMouseMovementUpdateTargetGradientPos() {
-        gradientContainer?.addEventListener(
-            "mousemove",
-            (e: MouseEvent) => {
-                updateTargetGradientPos(e.pageX, e.pageY);
-            },
-        );
+        // gradientContainer?.addEventListener(
+        webContainer?.addEventListener("mousemove", (e: MouseEvent) => {
+            updateTargetGradientPos(
+                e.pageX,
+                Math.abs(e.pageY - window.scrollY),
+            );
+        });
     }
 
     /**
@@ -120,7 +149,7 @@ const { title } = Astro.props;
         window.addEventListener("scroll", (e) => {
             let offsetX = 250;
             let targetX = window.scrollX + window.innerWidth / 2 + offsetX;
-            let targetY = window.scrollY + window.innerHeight / 2;
+            let targetY = window.innerHeight / 2;
 
             updateTargetGradientPos(targetX, targetY);
         });
@@ -130,12 +159,8 @@ const { title } = Astro.props;
      * Actualiza la posición actual del gradiente.
      */
     function updateCurrentGradientPosition() {
-        let dx = Math.abs(
-            currentGradientPosition.x - targetGradientPosition.x,
-        );
-        let dy = Math.abs(
-            currentGradientPosition.y - targetGradientPosition.y,
-        );
+        let dx = Math.abs(currentGradientPosition.x - targetGradientPosition.x);
+        let dy = Math.abs(currentGradientPosition.y - targetGradientPosition.y);
         let distance = Math.sqrt(dx * dx + dy * dy);
 
         let lerpFactor = 0.07; // Determina velocidad de movimiento del gradiente
@@ -152,7 +177,7 @@ const { title } = Astro.props;
             );
 
             if (gradientContainer) {
-                gradientContainer.style.background = `radial-gradient(600px circle at ${currentGradientPosition.x}px ${currentGradientPosition.y}px, hsla(274, 100%, 35%, 0.25), transparent 80%)`;
+                gradientContainer.style.background = `radial-gradient(600px circle at ${currentGradientPosition.x}px ${currentGradientPosition.y}px, hsla(266, 76%, 48%, 0.15), transparent 80%)`;
             }
 
             animationFrameId = requestAnimationFrame(
@@ -196,4 +221,3 @@ const { title } = Astro.props;
         };
     }
 </script>
-

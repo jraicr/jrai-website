@@ -8,25 +8,21 @@ import Footer from "@/components/base/Footer.astro";
 ---
 
 <BaseLayout title="J. Rai">
-    <div class="gradient-container">
-        <div class="main-wrapper">
-            <div class="main-flex-container">
-                <Header
-                    title="J. Rai"
-                    subtitle="Full Stack & Game Developer"
-                    tagline="I build interactive multimedia experiences focused on the user."
-                    githubUser="jraicr"
-                    twitterUser="JRaiDev"
-                    linkedinUser="jraidev"
-                />
+    <div class="main-flex-container">
+        <Header
+            title="J. Rai"
+            subtitle="Full Stack & Game Developer"
+            tagline="I build interactive multimedia experiences focused on the user."
+            githubUser="jraicr"
+            twitterUser="JRaiDev"
+            linkedinUser="jraidev"
+        />
 
-                <main id="content-container" class="content-wrapper">
-                    <About />
-                    <Experience />
-                    <Projects />
-                    <Footer />
-                </main>
-            </div>
-        </div>
+        <main id="content-container" class="content-wrapper">
+            <About />
+            <Experience />
+            <Projects />
+            <Footer />
+        </main>
     </div>
 </BaseLayout>

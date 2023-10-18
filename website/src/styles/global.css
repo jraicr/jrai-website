@@ -1,12 +1,15 @@
 :root {
     /* --main-bg-color: hsl(0, 0%, 7%); */
     --main-bg-color: hsl(263, 45%, 10%);
-    --main-headline: hsl(0, 0%, 100%);
+    /* --main-headline: hsl(0, 0%, 100%); */
+    --main-headline: hsl(270, 30%, 91%);
     --secondary-headline-color: hsl(245, 25%, 60%);
     --text-color: hsl(245, 20%, 76%);
-    --text-label-color: hsl(46, 100%, 50%);
+    --text-label-color: hsl(46, 100%, 50%); 
     --link-color: hsl(266, 32%, 91%);
     --hover-link-color: hsl(46, 100%, 50%);
+    /* --hover-link-color: hsl(51, 118%, 52%);  */
+    
     --hover-content-large-screen: rgba(175, 172, 205, 0.1);
     --label-bg-color: hsl(46, 100%, 50%, 0.1);
     --image-border: hsla(251, 25%, 74%, 0.4);
@@ -127,15 +130,23 @@ object,
 svg,
 video {
     display: block;
-    /* vertical-align: middle; */
+}
+
+.web-container {
+    display: block;
+    position: relative;
 }
 
 .gradient-container {
+    inset: 0;
+    display: block;
+    position:fixed;
+    z-index: 30;
     background: radial-gradient(600px circle at 0px 0px,
-            hsla(274, 100%, 35%, 0.25),
+            hsla(266, 76%, 48%, 0.15),
             transparent 80%);
-
-    background-attachment: fixed;
+    pointer-events:none;    
+    transition-duration: .3s;
 }
 
 .main-wrapper {
