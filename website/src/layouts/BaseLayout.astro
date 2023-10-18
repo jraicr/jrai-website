@@ -87,6 +87,7 @@ const { title } = Astro.props;
     let targetGradientPosition = { x: 0, y: 0 };
     let animationFrameId: number | null = null;
     let isGradientMoving = false;
+    let lastTime = Date.now();
 
     startGradientEffect();
 
@@ -163,7 +164,7 @@ const { title } = Astro.props;
         let dy = Math.abs(currentGradientPosition.y - targetGradientPosition.y);
         let distance = Math.sqrt(dx * dx + dy * dy);
 
-        let lerpFactor = 0.07; // Determina velocidad de movimiento del gradiente
+        let lerpFactor = 4.45; // Determina velocidad de movimiento del gradiente
 
         isGradientMoving = distance > 1;
 
@@ -177,7 +178,7 @@ const { title } = Astro.props;
             );
 
             if (gradientContainer) {
-                gradientContainer.style.background = `radial-gradient(600px circle at ${currentGradientPosition.x}px ${currentGradientPosition.y}px, hsla(266, 76%, 48%, 0.15), transparent 80%)`;
+                gradientContainer.style.background = `radial-gradient(600px circle at ${currentGradientPosition.x}px ${currentGradientPosition.y}px, hsla(266, 76.6%, 48%, 0.15), transparent 80%)`;
             }
 
             animationFrameId = requestAnimationFrame(
@@ -212,8 +213,16 @@ const { title } = Astro.props;
         targetPosition: { x: number; y: number },
         factor: number,
     ) {
+        let now = Date.now();
+        let elapsed = now - lastTime;
+        lastTime = now;
+
         let dx = targetPosition.x - currentPosition.x;
         let dy = targetPosition.y - currentPosition.y;
+
+        // Multiplica el factor por el tiempo transcurrido
+        factor *= elapsed / 1000;
+        // console.log(factor);
 
         return {
             x: currentPosition.x + dx * factor,
