@@ -119,6 +119,13 @@ const archives = await getCollection("archives", ({ id }) => {
         height: 1rem;
         margin-right: 0.25rem;
         transform: rotate(180deg);
+        transition-property: transform;
+        transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+        transition-duration: .15s;
+    }
+
+    .archive-back-link:hover .archive-arrow {
+        transform: translate(-0.5rem, 0) rotate(180deg);
     }
 
     .archive-header-title {
