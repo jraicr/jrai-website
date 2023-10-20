@@ -1,0 +1,7 @@
+{
+    "year": 2022,
+    "name":  "Twitch Top 100 Hispano",
+    "techs": ["JavaScript", "SCSS", "HTML", "Vite", "Twitch API"],
+    "linkname": "twitch-top100.jrai.dev",
+    "href": "https://twitch-top100.jrai.dev"
+}

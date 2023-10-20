@@ -1,0 +1,7 @@
+{
+    "year": 2023,
+    "name":  "Docker LEMP Laravel Template",
+    "techs": ["Laravel", "Docker", "Bash Script"],
+    "linkname": "GitHub",
+    "href": "https://github.com/docker-dev-templates/docker-lemp-laravel"
+}

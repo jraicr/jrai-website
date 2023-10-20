@@ -1,0 +1,8 @@
+{
+    "year": 2023,
+    "name":  "Holoviz Dashboard",
+    "site": "CTA North",
+    "techs": ["Python", "Pandas", "Holoviz", "JavaScript", "MongoDB", "Big Data"],
+    "linkname": "GitHub",
+    "href": "https://github.com/jraicr?tab=repositories"
+}

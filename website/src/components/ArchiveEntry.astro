@@ -1,0 +1,299 @@
+---
+import TechLabelArchive from "@/components/TechLabelArchive.astro";
+
+interface Props {
+    year: number;
+    name: string;
+    site?: string;
+    techs: Array<string>;
+    linkname?: string;
+    href?: string;
+}
+
+const { year, name, site, techs, linkname, href } = Astro.props;
+
+let splittedName = name?.split(" ");
+
+let firstPartName = () => {
+    let newStr = "";
+    for (let index = 0; index < splittedName.length - 1; index++) {
+        newStr += splittedName[index] + " ";
+    }
+    return newStr + " ";
+};
+
+let lastPartname = splittedName[splittedName.length - 1];
+let isMultiWord = (splittedName as Array<string>).length > 1;
+
+let splittedUrlName = linkname?.split(" ");
+
+
+let firstPartUrlName = () => {
+    let newStr = "";
+    for (let index = 0; index < (splittedUrlName as string[]).length - 1; index++) {
+        newStr += (splittedUrlName as string[])[index] + " ";
+    }
+    return newStr + " ";
+};
+
+let lastPartUrlName = (splittedUrlName as string[])[
+    (splittedUrlName as string[]).length - 1
+];
+let isMultiWordUrlName = (splittedUrlName as Array<string>).length > 1;
+---
+
+<tr class="archive-row-entry">
+    <!-- AÑO -->
+    <td class="archive-data-entry"
+        ><div class="archive-data-entry-date-container">
+            {year}
+        </div>
+    </td>
+
+    <!-- Project Name -->
+    <td class="archive-data-entry-name"
+        ><div class="project-name-sm">
+            <a
+                class="entry-link"
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label=""
+                ><span>
+                    {isMultiWord == false ? name : firstPartName}
+                    <span class="entry-link-span"
+                        >{isMultiWord == true ? lastPartname : ""}<svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            class="content-title-icon"
+                            aria-hidden="true"
+                            ><path
+                                fill-rule="evenodd"
+                                d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                                clip-rule="evenodd"
+                            >
+                            </path>
+                        </svg>
+                    </span>
+                </span>
+            </a>
+        </div>
+        <div class="project-name">
+            {name}
+        </div>
+    </td>
+
+    <!-- SITIO -->
+    <td class="archive-data-entry lg-col"
+        ><div class="archive-data-entry-site-container">
+            {site}
+        </div>
+    </td>
+
+    <!-- TECNOLOGIAS USADAS -->
+    <td class="archive-data-entry-built-with lg-col">
+        <ul class="archive-data-built-with-list">
+            {
+                techs.map((tech) => {
+                    return <TechLabelArchive text={tech} />;
+                })
+            }
+        </ul>
+    </td>
+
+    <!-- LINK -->
+    <td class="archive-data-entry-link sm-col">
+        <ul class="archive-data-list">
+            <li class="archive-data-list-entry">
+                <a href={href} class="archive-link"
+                    ><span>
+                        {
+                            isMultiWordUrlName == false
+                                ? linkname
+                                : firstPartUrlName
+                        }
+                        <span class="entry-link-span">
+                            <!-- {linkname} -->
+                            {isMultiWordUrlName == true ? lastPartUrlName : ""}
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                class="archive-link-icon"
+                                aria-hidden="true"
+                                ><path
+                                    fill-rule="evenodd"
+                                    d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                                    clip-rule="evenodd"
+                                >
+                                </path>
+                            </svg>
+                        </span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </td>
+</tr>
+
+<style>
+    .archive-row-entry {
+        border-color: hsla(262, 27%, 84%, 0.1);
+        border-bottom-width: 1px;
+    }
+
+    .archive-row-entry:last-child {
+        border-style: none;
+    }
+    .archive-data-entry {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        vertical-align: top;
+        padding-right: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    td.archive-data-entry.lg-col {
+        min-width: 10rem;
+    }
+    .archive-data-entry-date-container {
+        transform: translate(0, 1px);
+    }
+
+    .archive-data-entry-site-container {
+        transform: translate(0, 1px);
+        white-space: nowrap;
+    }
+
+    .archive-data-entry-name {
+        color: var(--main-headline);
+        line-height: 1.375;
+        font-weight: 600;
+        vertical-align: top;
+        padding-right: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .project-name-sm {
+        display: block;
+    }
+
+    .entry-link {
+        color: var(--main-headline);
+        line-height: 1.25;
+        font-weight: 500;
+        font-size: 1rem;
+        align-items: baseline;
+        font-size: 1rem;
+        display: inline-flex;
+    }
+
+    .entry-link:hover {
+        color: var(--hover-link-color);
+    }
+    .entry-link:hover .content-title-icon {
+        transform: translate(0.25rem, -0.25rem) rotate(0) skewX(0) skewY(0)
+            scaleX(1) scaleY(1);
+    }
+
+    .entry-link-span {
+        display: inline-block;
+    }
+
+    .sm-col {
+        display: none;
+    }
+
+    .lg-col {
+        display: none;
+    }
+
+    .project-name {
+        display: none;
+    }
+
+    .archive-data-entry-link {
+        vertical-align: top;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .archive-data-list {
+        /* <ul> */
+        transform: translate(0, 0.25rem);
+    }
+
+    .archive-data-list-entry {
+        /* li */
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.25rem;
+    }
+
+    .archive-link {
+        display: inline-flex;
+        align-items: baseline;
+        color: var(--text-color);
+        line-height: 1.25;
+        font-weight: 500;
+        font-size: 0.875rem;
+    }
+
+    .archive-link:hover {
+        color: var(--hover-link-color);
+    }
+
+    .archive-link:hover .archive-link-icon {
+        transform: translate(0.25rem, -0.25rem) rotate(0) skewX(0) skewY(0)
+            scaleX(1) scaleY(1);
+    }
+
+    .archive-link-icon {
+        display: inline-block;
+        height: 1rem;
+        width: 1rem;
+        margin-left: 0.125rem;
+        flex-shrink: 0;
+        vertical-align: middle;
+        transition-property: transform;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 0.15s;
+    }
+
+    .archive-data-entry-built-with {
+        vertical-align: top;
+        padding-right: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .archive-data-built-with-list {
+        /* ul */
+        display: flex;
+        flex-wrap: wrap;
+        transform: translate(0, -0.375rem);
+    }
+
+    @media (min-width: 640px) {
+        .project-name {
+            display: block;
+        }
+        .project-name-sm {
+            display: none;
+        }
+
+        .sm-col {
+            display: table-cell;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .lg-col {
+            display: table-cell;
+        }
+    }
+</style>

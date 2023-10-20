@@ -1,0 +1,39 @@
+---
+interface Props {
+    text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<li class="archive-tech-element">
+    <div class="archive-tech-label">{text}</div>
+</li>
+
+<style>
+    .archive-tech-element {
+        margin-right: 0.375rem;
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .archive-tech-label {
+        display: flex;
+        align-items: center;
+
+        background-color: var(--label-bg-color);
+        border-color: var(--label-bg-color);
+        color: var(--text-label-color);
+
+        line-height: 1.25rem;
+        font-weight: 500;
+        font-size: 0.75rem;
+
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        border-radius: 9999px;
+    }
+</style>

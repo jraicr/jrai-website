@@ -1,0 +1,7 @@
+{
+    "year": 2022,
+    "name":  "Laravel Blog",
+    "techs": ["PHP", "Larvel", "Blade", "Livewire", "Tailwind", "Vite", "Bash Script", "Docker"],
+    "linkname": "Dpto Informática JMPP",
+    "href": "https://rai.departamentoinformaticajmpp.com/blog/"
+}

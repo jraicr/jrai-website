@@ -1,3 +1,4 @@
+import { number } from 'astro/zod';
 import { defineCollection, z } from 'astro:content';
 
 const aboutCollection = defineCollection({
@@ -28,6 +29,18 @@ const experienceCollection = defineCollection({
     })
 });
 
+const archiveCollection = defineCollection({
+    type: 'data',
+    schema: z.object({
+        year: z.number(),
+        name: z.string(),
+        site: z.string().optional(),
+        techs: z.array(z.string()),
+        linkname: z.string().optional(),
+        href: z.string().url().optional()
+    }) 
+})
+
 const projectCollection = defineCollection({
     type: 'data',
     schema: ({ image }) => z.object({
@@ -41,7 +54,7 @@ const projectCollection = defineCollection({
         })).optional(),
         tags: z.array(z.string()),
         picture: image().refine((img) => img.width >= 100, {
-                message: "La imagen debe de tener al menos 100 píxeles de ancho!",
+            message: "La imagen debe de tener al menos 100 píxeles de ancho!",
         }),
     }),
 });
@@ -50,5 +63,6 @@ export const collections = {
     'experiences': experienceCollection,
     'projects': projectCollection,
     'about': aboutCollection,
-    'footer': footerCollection
+    'footer': footerCollection,
+    'archives': archiveCollection
 };

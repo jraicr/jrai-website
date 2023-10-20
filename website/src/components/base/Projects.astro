@@ -4,9 +4,10 @@ import RelatedLink from "@/components/RelatedLink.astro";
 import TechLabel from "@/components/TechLabel.astro";
 import ViewFullLink from "@/components/ViewFullLink.astro";
 
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 
 import { getCollection } from "astro:content";
 const projects = await getCollection("projects", ({ id }) => {
@@ -68,11 +69,11 @@ const projects = await getCollection("projects", ({ id }) => {
                 })
             }
         </ul>
-        <!-- <ViewFullLink
+        <ViewFullLink
             partialText={t("link.projects.partial")}
             lastWord={t("link.projects.last")}
-            href="archive"
-        /> -->
+            href={translatePath("/archive")}
+        />
     </div>
 </section>
 

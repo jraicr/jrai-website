@@ -19,10 +19,17 @@ export const ui = {
         'link.projects.partial': 'View Full',
         'link.projects.last': 'Archive',
         'language.indicator': 'You are reading this site in',
+        'archive.title': 'All My Projects',
+        'archive.year': 'Year',
+        'archive.name': 'Project',
+        'archive.site': 'Made at',
+        'archive.techs': 'Built with',
+        'archive.link': 'Link',
+
+
     },
 
     es: {
-        'language.indicator': 'Estás leyendo este sitio en',
         'header.greeting': 'Hola!',
         'header.iam': 'Soy',
         'nav.about': 'Sobre mí',
@@ -32,6 +39,13 @@ export const ui = {
         'link.resume.last': 'Completo',
         'link.projects.partial': 'Ver Proyectos',
         'link.projects.last': 'Completo',
+        'language.indicator': 'Estás leyendo este sitio en',
+        'archive.title': 'Todos Mis Proyectos',
+        'archive.year': 'Año',
+        'archive.name': 'Proyecto',
+        'archive.site': 'Hecho en',
+        'archive.techs': 'Tecnologías Usadas',
+        'archive.link': 'Link',
     },
 
 } as const;

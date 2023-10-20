@@ -1,0 +1,7 @@
+{
+    "year": 2023,
+    "name":  "Docker Astro Template",
+    "techs": ["Astro", "Vite", "Docker", "Bash Script"],
+    "linkname": "GitHub",
+    "href": "https://github.com/docker-dev-templates/docker-astro-template"
+}
