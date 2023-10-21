@@ -47,13 +47,12 @@ const { title } = Astro.props;
 
         <!-- CSS Fonts -->
         <link
-            rel="stylesheet"
+            rel="preload"
             href="/styles/fonts.css"
-            media="print"
-            onload="
-            this.media = 'all'
-"
+            as="style"
+            onload="this.onload = null; this.rel = 'stylesheet'"
         />
+        <noscript><link rel="stylesheet" href="/styles/fonts.css" /></noscript>
 
         <!-- Favicon -->
         <link rel="icon" href="/icons/favicon.ico" />
