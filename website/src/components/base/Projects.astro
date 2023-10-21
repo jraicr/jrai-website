@@ -73,6 +73,7 @@ const projects = await getCollection("projects", ({ id }) => {
             partialText={t("link.projects.partial")}
             lastWord={t("link.projects.last")}
             href={translatePath("/archive")}
+            ariaLabel={t("aria-label.proj-full")}
         />
     </div>
 </section>

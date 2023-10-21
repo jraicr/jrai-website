@@ -1,5 +1,9 @@
 ---
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
+import {
+    getLangFromUrl,
+    useTranslations,
+    useTranslatedPath,
+} from "@/i18n/utils";
 
 interface Props {
     date: string;
@@ -30,10 +34,10 @@ const t = useTranslations(lang);
                         target="_blank"
                         rel="noreferrer"
                         rel="noopener"
-                        aria-label={role + " " + t("aria-label.exp-preposition")  + " " + companyName}
+                        aria-label= {role + " " + t('aria-label.exp-preposition') +  " " + companyName}
                     >
                         <span class="content-link-container"></span>
-                        <span
+                        <span aria-hidden="true"
                             >{role} ·
                             <span class="experience-site"
                                 >{companyName}

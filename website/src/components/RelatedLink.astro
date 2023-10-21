@@ -17,28 +17,23 @@ interface Props {
 const { iconType, text, href } = Astro.props;
 
 let DynamicIcon = SvgIconClip;
-let ariaText = "";
 
 function renderIconSwitch(iconType: string) {
     switch (iconType) {
         case "clip":
             DynamicIcon = SvgIconClip;
-            ariaText = t('aria-label.link-text');
             break;
 
         case "github":
             DynamicIcon = SvgIconGithub;
-            ariaText = t('aria-label.link-github');
             break;
 
         case "like":
             DynamicIcon = SvgIconLike;
-            ariaText = t('aria-label.link-likes');
             break;
 
         default:
             DynamicIcon = SvgIconClip;
-            ariaText = t('aria-label.link-text');
     }
 }
 
@@ -46,7 +41,7 @@ renderIconSwitch(iconType);
 ---
 
 <li class="related-link-element">
-    <a class="related-link" href={href} target="_blank" rel="noreferrer" aria-label={ariaText}>
+    <a class="related-link" href={href} target="_blank" rel="noreferrer" aria-label={`${text} link`}>
         <DynamicIcon />
         <span>{text}</span>
     </a>

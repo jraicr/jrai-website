@@ -8,13 +8,14 @@ interface Props {
     partialText: string;
     lastWord: string;
     href: string;
+    ariaLabel: string;
 }
 
-const { partialText, lastWord, href } = Astro.props;
+const { partialText, lastWord, href, ariaLabel } = Astro.props;
 ---
 
 <div>
-    <a class="view-full-link" href={href} aria-label={t('aria-label.proj-full')}>
+    <a class="view-full-link" href={href} aria-label={ariaLabel}>
         <span>
             <span class="partial-text">{partialText}&nbsp;</span>
 
@@ -27,6 +28,7 @@ const { partialText, lastWord, href } = Astro.props;
                     height="24"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
+                    aria-hidden="true"
                 >
                     <path
                         d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"
