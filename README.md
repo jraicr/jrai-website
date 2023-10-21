@@ -13,4 +13,4 @@ jrai.dev
   </a>
 </p>
 
-![Screenshot from https://jrai.dev](../media/images/game-screenshot.jpg?raw=true)
+![Screenshot from https://jrai.dev](../media/images/image.png?raw=true)
