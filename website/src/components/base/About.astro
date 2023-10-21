@@ -9,7 +9,7 @@ const aboutEntry: CollectionEntry<"about"> = await getEntry("about", `${lang}/ab
 const { Content } = await aboutEntry.render();
 ---
 
-<section id="about" class="content" aria-label="About me">
+<section id="about" class="content" aria-label={t("aria-label.about")}>
     <div class="content-title sr-only">
         <h2>{t("nav.about")}</h2>
     </div>

@@ -5,7 +5,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<nav class="header-nav" aria-label="In-page jump links">
+<nav class="header-nav" aria-label={t('aria-label.nav')}>
     <ul class="header-nav-list">
         <li class="header-nav-element">
             <a href="#about" class="header-nav-link">

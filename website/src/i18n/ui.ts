@@ -26,7 +26,19 @@ export const ui = {
         'archive.techs': 'Built with',
         'archive.link': 'Link',
 
-
+        'aria-label.about': 'About me',
+        'aria-label.experience': 'Work experience',
+        'aria-label.nav': 'In-page jump links',
+        'aria-label.social': 'My social networks',
+        'aria-label.exp-preposition': 'at',
+        'aria-label.exp-related-Link': 'Related links',
+        'aria-label.exp-techs': 'Technologies used',
+        'aria-label.exp-full': 'View full résumé',
+        'aria-label.proj-selected': 'Selected projects',
+        'aria-label-proj-full': 'Ver sección completa',
+        'aria-label.link-text': 'Link to external site',
+        'aria-label.link-github': 'Github repository',
+        'aria-label.link-likes': 'Link to the product likes',
     },
 
     es: {
@@ -46,6 +58,21 @@ export const ui = {
         'archive.site': 'Hecho en',
         'archive.techs': 'Tecnologías Usadas',
         'archive.link': 'Link',
+
+        'aria-label.about': 'Acerca de mí',
+        'aria-label.experience': 'Experiencia laboral',
+        'aria-label.nav': 'Enlaces de navegación dentro de la misma página',
+        'aria-label.social': 'Mis redes Sociales',
+        'aria-label.exp-preposition': 'en',
+        'aria-label.exp-related-Link': 'Enlaces relacionados',
+        'aria-label.exp-techs': 'Tecnologías utilizadas',
+        'aria-label.exp-full': 'Ver curriculum completo',
+        'aria-label.proj-selected': 'Selección de proyectos',
+        'aria-label.proj-full': 'Ver sección completa',
+        'aria-label.link-text': 'Enlace externo al sitio',
+        'aria-label.link-github': 'Enlace a repositorio de Github',
+        'aria-label.link-likes': 'Enlace a likes del producto',
+        
     },
 
 } as const;

@@ -19,7 +19,7 @@ const experiences = await getCollection("experiences", ({ id }) => {
 
 ---
 
-<section id="experience" class="content">
+<section id="experience" class="content" aria-label={t("aria-label.experience")}>
     <div class="content-title sr-only">
         <h2>{t("nav.experience")}</h2>
     </div>
@@ -64,7 +64,7 @@ const experiences = await getCollection("experiences", ({ id }) => {
                                 <ul
                                     slot="related-links"
                                     class="lists-related-links"
-                                    aria-label="Related links"
+                                    aria-label={t('aria-label.exp-related-Link')}
                                 >
                                     {exp.data.relatedLinks?.map((link) => {
                                         return (
@@ -81,6 +81,7 @@ const experiences = await getCollection("experiences", ({ id }) => {
                                     slot="tech-label"
                                     class="list-used-tech"
                                     aria-label="Technologies Used"
+                                    aria-label={t('aria-label.exp-techs')}
                                 >
                                     {exp.data.tags.map((tag) => {
                                         return <TechLabel text={tag} />;
@@ -95,6 +96,7 @@ const experiences = await getCollection("experiences", ({ id }) => {
             partialText={t("link.resume.partial")}
             lastWord={t("link.resume.last")}
             href={translatePath('/cv.pdf')}
+            aria-label={t("aria-label.exp-full")}
         />
     </div>
 </section>

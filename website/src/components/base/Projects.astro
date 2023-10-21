@@ -15,7 +15,7 @@ const projects = await getCollection("projects", ({ id }) => {
 });
 ---
 
-<section id="projects" class="content">
+<section id="projects" class="content" aria-label={t('aria-label.proj-selected')}>
     <div class="content-title sr-only">
         <h2>{t("nav.projects")}</h2>
     </div>
@@ -42,7 +42,7 @@ const projects = await getCollection("projects", ({ id }) => {
                             <ul
                                 slot="related-links"
                                 class="lists-related-links"
-                                aria-label="Related links"
+                                aria-label={t('aria-label.exp-related-Link')}
                             >
                                 {project.data.relatedLinks?.map((link) => {
                                     return (
@@ -58,7 +58,7 @@ const projects = await getCollection("projects", ({ id }) => {
                             <ul
                                 slot="tech-label"
                                 class="list-used-tech"
-                                aria-label="Technologies Used"
+                                aria-label={t('aria-label.exp-techs')}
                             >
                                 {project.data.tags.map((tag) => {
                                     return <TechLabel text={tag} />;

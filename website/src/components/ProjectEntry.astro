@@ -17,7 +17,7 @@ const { name, image, alt, url } = Astro.props;
         <div class="content-hover-container"></div>
         <div class="content-entry">
             <h3 class="content-heading-text">
-                <a href={url} class="content-title-link" target="_blank">
+                <a href={url} class="content-title-link" target="_blank" aria-label={name}>
                     <span class="content-link-container"></span>
                     {name}
                     <svg

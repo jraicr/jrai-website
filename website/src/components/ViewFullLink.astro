@@ -1,4 +1,9 @@
 ---
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
 interface Props {
     partialText: string;
     lastWord: string;
@@ -9,7 +14,7 @@ const { partialText, lastWord, href } = Astro.props;
 ---
 
 <div>
-    <a class="view-full-link" href={href}>
+    <a class="view-full-link" href={href} aria-label={t('aria-label.proj-full')}>
         <span>
             <span class="partial-text">{partialText}&nbsp;</span>
 
