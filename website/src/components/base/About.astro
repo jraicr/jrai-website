@@ -1,7 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { getEntry, type CollectionEntry} from "astro:content";
-import GanonAnimation from "@/components/vue/LinkAnimation.vue";
+import LinkAnimation from "@/components/vue/LinkAnimation.vue";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -17,7 +17,7 @@ const { Content } = await aboutEntry.render();
 
     <div class="about-content">
         <Content />
-        <GanonAnimation client:media="(min-width: 1024px)" />
+        <LinkAnimation client:idle client:media="(min-width: 1024px)" />
     </div>
 
     <style is:inline>

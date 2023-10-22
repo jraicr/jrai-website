@@ -1,4 +1,5 @@
 ---
+import GreetingAnimation from '@/components/vue/GreetingAnimation.vue';
 import GithubIcon from "@/components/social-icons/github.astro";
 import TwitterIcon from "@/components/social-icons/twitter.astro";
 import LinkedinIcon from "@/components/social-icons/linkedin.astro";
@@ -28,7 +29,7 @@ const translatePath = useTranslatedPath(lang);
     <div>
         <!-- HEADER -->
         <span>
-            <p class="greeting-line">{t("header.greeting")}</p>
+            <GreetingAnimation client:idle client:media="(min-width: 1024px)" greeting={t("header.greeting")} />
             <h1>
                 <a href={translatePath("/")}
                     >{t("header.iam")}&nbsp;<span class="highlight">
@@ -182,7 +183,7 @@ const translatePath = useTranslatedPath(lang);
     }
 </style>
 
-<script>
+<!-- <script>
     let runningAnimation = false;
     listenForGreetingClick();
 
@@ -219,4 +220,4 @@ const translatePath = useTranslatedPath(lang);
             e.classList.remove(animationName);
         }
     }
-</script>
+</script> -->
