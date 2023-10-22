@@ -3,4 +3,3 @@ En 2009, empecé a programar misiones y herramientas para jugadores y desarrolla
 Mi principal objetivo es desarrollar aplicaciones web y herramientas para clientes y empresas. En mi tiempo libre me dedico a desarrollar la versión comercial de <a href="https://4frames.jrai.dev" target="_blank">4 Frames</a>, un juego web desafiante donde debes adivinar una película a través de hasta 4 fotogramas.
 
 Cuando no estoy en el ordenador, estoy en la playa, viendo alguna serie con mi mujer o tramando algún plan contra <span class="ganon-word">Ganondorf</span>.
-<div class="anim"><img src="/animation.gif" width="125" height="104.16" alt="Animación de un personaje de Zelda llamado Link corriendo." decoding="async" loading="lazy"/></div>

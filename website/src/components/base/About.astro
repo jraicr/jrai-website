@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { getEntry, type CollectionEntry} from "astro:content";
+import GanonAnimation from "@/components/vue/LinkAnimation.vue";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -16,6 +17,7 @@ const { Content } = await aboutEntry.render();
 
     <div class="about-content">
         <Content />
+        <GanonAnimation client:media="(min-width: 1024px)" />
     </div>
 
     <style is:inline>
@@ -92,36 +94,3 @@ const { Content } = await aboutEntry.render();
         }
     </style>
 </section>
-
-<script>
-    listenMouseOverGanon();
-    document.addEventListener("astro:after-swap", listenMouseOverGanon);
-
-    function listenMouseOverGanon() {
-        if (window.innerWidth >= 1024) {
-            let playingAnim = false;
-
-            document
-                .querySelector(".ganon-word")?.addEventListener("mouseover", function () {
-                    let animDiv = document.querySelector(".anim");
-                    let body = document.body;
-
-                    if (!playingAnim) {
-                        playingAnim = true;
-
-                        animDiv?.classList.add("anim-play");
-                        body.classList.add("hide-scroll-temporal-overflow");
-
-                        setTimeout(() => {
-                            playingAnim = false;
-                            animDiv?.classList.remove("anim-play");
-                            body.classList.remove(
-                                "hide-scroll-temporal-overflow",
-                            );
-                        }, 2100);
-                    }
-                });
-        }
-    }
-
-</script>
