@@ -3,6 +3,7 @@ import "@/styles/global.css";
 import { ViewTransitions } from "astro:transitions";
 import { getLangFromUrl } from "@/i18n/utils";
 import GradientEffect from "@/components/vue/GradientEffect.vue";
+import GoogleAnalytics from "@/components/GoogleAnalytics.astro";
 
 const lang = getLangFromUrl(Astro.url);
 
@@ -66,9 +67,9 @@ const { title } = Astro.props;
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#170e25" />
         <meta name="generator" content={Astro.generator} />
-
         <title>{title}</title>
         <ViewTransitions />
+        <GoogleAnalytics />
     </head>
     <body>
         <div class="web-container">
