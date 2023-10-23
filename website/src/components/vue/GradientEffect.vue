@@ -25,7 +25,7 @@ export default {
      */
     function awakeGradientEffect() {
         gradientContainer = document.querySelector(".gradient-container");
-        webContainer = document.querySelector<HTMLElement>(".web-container");
+        webContainer = document.querySelector(".web-container");
         startGradientEffect();
     }
 
