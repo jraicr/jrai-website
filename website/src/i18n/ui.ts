@@ -49,7 +49,7 @@ export const ui = {
         'nav.projects': 'Proyectos',
         'link.resume.partial': 'Ver CV',
         'link.resume.last': 'Completo',
-        'link.projects.partial': 'Ver Proyectos',
+        'link.projects.partial': 'Ver Archivo',
         'link.projects.last': 'Completo',
         'language.indicator': 'Estás leyendo este sitio en',
         'archive.title': 'Mis Proyectos',
