@@ -1,5 +1,5 @@
 <template>
-    <p class="greeting-line" @click="playGreetingAnim">Hola</p>
+    <p class="greeting-line" @click="playGreetingAnim">{{ greeting }}</p>
 </template>
   
 <script>
