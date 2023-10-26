@@ -68,7 +68,7 @@ export const ui = {
         'aria-label.exp-techs': 'Tecnologías utilizadas',
         'aria-label.exp-full': 'Ver CV Completo',
         'aria-label.proj-selected': 'Selección de proyectos',
-        'aria-label.proj-full': 'Ver Proyectos Completo',
+        'aria-label.proj-full': 'Ver Archivo Completo',
         'aria-label.link-github': 'Enlace a repositorio de Github',
         'aria-label.link-likes': 'Enlace a likes del producto',
         
