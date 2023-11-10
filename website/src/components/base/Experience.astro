@@ -30,16 +30,16 @@ const experiences = await getCollection("experiences", ({ id }) => {
                 /** @TODO Cambiar ordenación y basarlo en un dato de la colección.
                  *  Quizás haya que añadir una variable Sort al esquema o algo así */
                 experiences.sort((a, b) => {
-                        let initialYearA = parseInt(a.data.dates.slice(0, 4));
-                        let initialYearB = parseInt(b.data.dates.slice(0, 4));
+                    let initialYearA = parseInt(a.data.dates.slice(0, 4));
+                    let initialYearB = parseInt(b.data.dates.slice(0, 4));
 
-                        if (initialYearA > initialYearB) {
-                            return -1;
-                        } else if (initialYearA < initialYearB) {
-                            return 1;
-                        } else {
-                            return 0;
-                        }
+                    let isCurrentA = a.data.dates.includes("Actualidad") || a.data.dates.includes("Present");
+                    let isCurrentB = b.data.dates.includes("Actualidad") || b.data.dates.includes("Present");
+
+                    return isCurrentA && !isCurrentB ? -1 :
+                        !isCurrentA && isCurrentB ? 1 :
+                        initialYearA > initialYearB ? -1 :
+                        initialYearA < initialYearB ? 1 : 0;
                     })
                     .map((exp) => {
                         return (
