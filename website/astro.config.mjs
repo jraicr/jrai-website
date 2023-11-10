@@ -1,9 +1,6 @@
 import { defineConfig } from 'astro/config';
 import vue from "@astrojs/vue";
 import sitemap from "@astrojs/sitemap";
-import partytown from "@astrojs/partytown";
-
-import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,15 +15,5 @@ export default defineConfig({
         en: 'en-US'
       }
     }
-  }), partytown({
-    config: {
-      forward: ["dataLayer.push"]
-    }
-  })],
-  output: "server",
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-  }),
+  })]
 });
