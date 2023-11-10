@@ -27,8 +27,6 @@ const experiences = await getCollection("experiences", ({ id }) => {
     <div>
         <ol class="content-list">
             {
-                /** @TODO Cambiar ordenación y basarlo en un dato de la colección.
-                 *  Quizás haya que añadir una variable Sort al esquema o algo así */
                 experiences.sort((a, b) => {
                     let initialYearA = parseInt(a.data.dates.slice(0, 4));
                     let initialYearB = parseInt(b.data.dates.slice(0, 4));
