@@ -17,6 +17,8 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang={lang}>
     <head>
+        <!-- Analytics -->
+        <GoogleAnalytics />
         <meta charset="UTF-8" />
         <meta
             name="description"
@@ -55,9 +57,6 @@ const { title } = Astro.props;
             onload="this.onload = null; this.rel = 'stylesheet'"
         />
         <noscript><link rel="stylesheet" href="/styles/fonts.css" /></noscript>
-
-        <!-- Analytics -->
-        <GoogleAnalytics />
         
         <!-- Favicon -->
         <link rel="icon" href="/icons/favicon.ico" />
