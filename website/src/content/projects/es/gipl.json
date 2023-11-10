@@ -1,5 +1,6 @@
 {
     "name": "GIPL",
+    "order": 1,
     "description": [
         "Aplicación web para gestionar las incidencias en las aulas de informática. Configuración de usuarios, roles y privilegios. Administración de inventario y equipos de las aulas. Gestión de alumnos, equipos informáticos, incidencias y seguimiento de su estado."
     ],

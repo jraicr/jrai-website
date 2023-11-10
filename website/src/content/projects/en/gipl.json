@@ -1,5 +1,6 @@
 {
     "name": "GIPL",
+    "order": 1,
     "description": [
         "Web app to manage incidents in computer classrooms. Configuration of users, roles and privileges. Inventory management and classroom equipment, management of students, computer equipment, incidents and monitoring of their status."
     ],

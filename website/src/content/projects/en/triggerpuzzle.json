@@ -1,5 +1,6 @@
 {
     "name": "Trigger Puzzle System",
+    "order": 2,
     "description": [
         "Unity engine tool to create puzzles easily for any type of games such as platformers, rpgs, zelda like adventures, logic games, etc. Introduces a new system of activatable and trigger objects. A flexible and easy way to create puzzles that focus on the workflow."
     ],

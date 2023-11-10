@@ -1,5 +1,6 @@
 {
     "name": "Docker Dev Templates",
+    "order": 5,
     "description": [
         "Github organization that has a series of repositories that represent rich templates for deploying development environments using Docker containers. They are oriented to web development with frameworks and libraries such as Vue, Astro, Laravel and the like."
     ],

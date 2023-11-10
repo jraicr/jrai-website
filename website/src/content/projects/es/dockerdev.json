@@ -1,5 +1,6 @@
 {
     "name": "Docker Dev Templates",
+    "order": 5,
     "description": [
         "Organización de Github que mantiene unos cuantos repositorios con plantillas para desplegar entornos de desarrollo usando Docker."
     ],

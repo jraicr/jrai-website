@@ -1,5 +1,6 @@
 {
     "name": "Top 100 Twitch Hispano",
+    "order": 4,
     "description": [
         "Lists the 100 Spanish-speaking channels with the most viewers at the moment. Select the channel to load its live broadcast, filter by channel name and add your prefered ones to you favourite list."
     ],

@@ -1,5 +1,6 @@
 {
     "name": "4-Frames",
+    "order": 3,
     "description": [
         "Web game where you have to guess the movie through up to 4 frames. Each attemp unlocks a new frame until you reach the last one."
     ],

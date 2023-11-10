@@ -23,7 +23,7 @@ const projects = await getCollection("projects", ({ id }) => {
     <div>
         <ul class="content-list">
             {
-                projects.map((project) => {
+                projects.sort((a, b) => a.data.order - b.data.order).map((project) => {
                     return (
                         <ProjectEntry
                             name={project.data.name}

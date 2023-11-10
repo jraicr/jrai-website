@@ -1,5 +1,6 @@
 {
     "name": "4-Frames",
+    "order": 3,
     "description": [
         "Juego web en el que tienes que adivinar la película a través de hasta 4 fotogramas. Cada intento desbloquea un nuevo fotograma hasta llegar al último."
     ],
