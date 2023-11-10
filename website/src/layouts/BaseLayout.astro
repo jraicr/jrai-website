@@ -56,6 +56,9 @@ const { title } = Astro.props;
         />
         <noscript><link rel="stylesheet" href="/styles/fonts.css" /></noscript>
 
+        <!-- Analytics -->
+        <GoogleAnalytics />
+        
         <!-- Favicon -->
         <link rel="icon" href="/icons/favicon.ico" />
         <link
@@ -70,7 +73,6 @@ const { title } = Astro.props;
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
         <ViewTransitions />
-        <GoogleAnalytics />
     </head>
     <body>
         <div class="web-container">
