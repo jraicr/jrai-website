@@ -1,7 +1,7 @@
 {
     "year": 2023,
     "name":  "GIPL",
-    "techs": ["Laravel", "Livewire", "PHP", "AdminLTE", "Bootstrap", "MariaDB", "phpMyAdmin", "Docker"],
+    "techs": ["Laravel", "Livewire", "PHP", "SQL", "phpMyAdmin", "AdminLTE", "Bootstrap", "MariaDB", "phpMyAdmin", "Docker"],
     "linkname": "Dpto Informática JMPP",
     "href": "https://rai.departamentoinformaticajmpp.com/gipl"
 }
