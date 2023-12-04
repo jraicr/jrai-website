@@ -3,6 +3,7 @@ import "@/styles/global.css";
 import { ViewTransitions } from "astro:transitions";
 import { getLangFromUrl } from "@/i18n/utils";
 import GradientEffect from "@/components/vue/GradientEffect.vue";
+import Snow from "@/components/vue/Snow.astro";
 // import GoogleAnalytics from "@/components/GoogleAnalytics.astro";
 
 const lang = getLangFromUrl(Astro.url);
@@ -57,7 +58,7 @@ const { title } = Astro.props;
             onload="this.onload = null; this.rel = 'stylesheet'"
         />
         <noscript><link rel="stylesheet" href="/styles/fonts.css" /></noscript>
-        
+
         <!-- Favicon -->
         <link rel="icon" href="/icons/favicon.ico" />
         <link
@@ -76,6 +77,7 @@ const { title } = Astro.props;
     <body>
         <div class="web-container">
             <GradientEffect client:idle client:media="(min-width: 1024px)" />
+            <Snow />
             <div class="main-wrapper">
                 <slot />
             </div>
