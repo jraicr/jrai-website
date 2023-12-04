@@ -6,6 +6,8 @@ import LinkedinIcon from "@/components/social-icons/linkedin.astro";
 import HeaderNav from "@/components/HeaderNav.astro";
 import LanguageSwitcher from "@/components/LanguageSwitcher.astro";
 
+import ChristmasHat from "@/components/svg-icons/SvgChristmasHat.astro"
+
 import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
 
 interface Props {
@@ -31,8 +33,10 @@ const translatePath = useTranslatedPath(lang);
         <span>
             <GreetingAnimation client:idle client:media="(min-width: 1024px)" greeting={t("header.greeting")} />
             <h1>
-                <a href={translatePath("/")}
-                    >{t("header.iam")}&nbsp;<span class="highlight">
+                
+                <a href={translatePath("/")}>
+                    <ChristmasHat/>
+                    {t("header.iam")}&nbsp;<span class="highlight">
                         {title}</span
                     ></a
                 >
