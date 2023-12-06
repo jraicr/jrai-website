@@ -1,14 +1,18 @@
 ---
-import GreetingAnimation from '@/components/vue/GreetingAnimation.vue';
+import GreetingAnimation from "@/components/vue/GreetingAnimation.vue";
 import GithubIcon from "@/components/social-icons/github.astro";
 import TwitterIcon from "@/components/social-icons/twitter.astro";
 import LinkedinIcon from "@/components/social-icons/linkedin.astro";
 import HeaderNav from "@/components/HeaderNav.astro";
 import LanguageSwitcher from "@/components/LanguageSwitcher.astro";
 
-import ChristmasHat from "@/components/svg-icons/SvgChristmasHat.astro"
+import ChristmasHat from "@/components/svg-icons/SvgChristmasHat.astro";
 
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
+import {
+    getLangFromUrl,
+    useTranslations,
+    useTranslatedPath,
+} from "@/i18n/utils";
 
 interface Props {
     title: string;
@@ -30,16 +34,20 @@ const translatePath = useTranslatedPath(lang);
 <header>
     <div>
         <!-- HEADER -->
+
         <span>
-            <GreetingAnimation client:idle client:media="(min-width: 1024px)" greeting={t("header.greeting")} />
+            <GreetingAnimation
+                client:idle
+                client:media="(min-width: 1024px)"
+                greeting={t("header.greeting")}
+            />
             <h1>
-                
                 <a href={translatePath("/")}>
-                    <ChristmasHat/>
+                    <ChristmasHat />
                     {t("header.iam")}&nbsp;<span class="highlight">
-                        {title}</span
-                    ></a
-                >
+                        {title}
+                    </span>
+                </a>
             </h1>
             <h2>{subtitle}</h2>
             <p class="tagline">{tagline}</p>
@@ -110,7 +118,7 @@ const translatePath = useTranslatedPath(lang);
 
         30% {
             transform: translate(0, -30px) rotate(-15deg) skewX(0) skewY(0)
-                scaleX(1.50) scaleY(1.50);
+                scaleX(1.5) scaleY(1.5);
         }
 
         50% {
@@ -120,7 +128,7 @@ const translatePath = useTranslatedPath(lang);
 
         60% {
             transform: translate(0, -20px) rotate(-15deg) skewX(0) skewY(0)
-                scaleX(1.20) scaleY(1.20);
+                scaleX(1.2) scaleY(1.2);
         }
 
         65% {
