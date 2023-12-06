@@ -1,8 +1,14 @@
+---
+import { getLangFromUrl } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const svgStyleClass = "svg-christmas-hat-" + lang
+---
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	viewBox="0 0 200 200"
 	aria-hidden="true"
-	class="svg-christmas-hat"
+	class={svgStyleClass}
 	aria-hidden="true"
 >
 	<style>
@@ -72,39 +78,64 @@
 </svg>
 
 <style>
-	@media (max-width: 640px) {
-		.svg-christmas-hat {
-			position: absolute;
-			width: 40px;
-			top: 70px;
-			left: 115px;
-		}
-	}
+	
+	:root {
+	--width: 51px;
 
-	@media (min-width: 641px) and (max-width: 767px) {
-		.svg-christmas-hat {
-			position: absolute;
-			width: 51px;
-			top: 65px;
-			left: 145px;
-		}
-	}
+	--es_top: 113px;
+	--es_left: 130px;
 
-	@media (min-width: 768px) and (max-width: 1024px) {
-		.svg-christmas-hat {
-			position: absolute;
-			width: 51px;
-			top: 95px;
-			left: 170px;
-		}
-	}
+	--en_top: 113px;
+	--en_left: 140px;
+}
+.svg-christmas-hat-es, .svg-christmas-hat-en {
+	position: absolute;
+	width: var(--width);
+}
 
-	@media (min-width: 1024px) {
-		.svg-christmas-hat {
-			position: absolute;
-			width: 51px;
-			top: 113px;
-			left: 130px;
-		}
+.svg-christmas-hat-es {
+	top: var(--es_top);
+	left: var(--es_left);
+}
+
+.svg-christmas-hat-en {
+	top: var(--en_top);
+	left: var(--en_left);
+}
+
+@media (max-width: 230px) {
+	.svg-christmas-hat-es, .svg-christmas-hat-en {
+		display: none;
 	}
+}
+@media (max-width: 640px) {
+	:root {
+		--width: 35px;
+		--es_top: 73px;
+		--es_left: 115px;
+
+		--en_top: 73px;
+		--en_left: 123px;
+	}
+}
+
+@media (min-width: 641px) and (max-width: 767px) {
+	:root {
+		--es_top: 65px;
+		--es_left: 145px;
+
+		--en_top: 65px;
+		--en_left: 154px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	:root {
+		--es_top: 95px;
+		--es_left: 170px;
+
+		--en_top: 95px;
+		--en_left: 178px;
+	}
+}
 </style>
