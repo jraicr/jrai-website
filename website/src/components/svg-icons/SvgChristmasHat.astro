@@ -1,0 +1,141 @@
+---
+import { getLangFromUrl } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const svgStyleClass = "svg-christmas-hat-" + lang
+---
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	viewBox="0 0 200 200"
+	aria-hidden="true"
+	class={svgStyleClass}
+	aria-hidden="true"
+>
+	<style>
+		.s0 {
+			fill: #b5292a;
+		}
+		.s1 {
+			opacity: 0.2;
+			fill: #181714;
+		}
+		.s2 {
+			fill: #ffffff;
+		}
+	</style>
+	<g id="Layer 1">
+		<g id="<Group>">
+			<path
+				id="<Path>"
+				fill-rule="evenodd"
+				class="s0"
+				d="m177.1 97.7c-31.2-70.9-115.2-78.1-146.7-11.4-6.5 13.7-12.9 42.6-12.9 42.6l6.4 5.7c0 0 12.6-16 21.3-25.5 5.5-5.9 11.4-10.7 15-13.4 2.2-1.6 3.6-2.5 3.6-2.5-0.7 10.4-1.4 53.8 8 49.7z"
+			></path>
+			<path
+				id="<Path>"
+				fill-rule="evenodd"
+				class="s1"
+				d="m63.8 93.2c5.9-4.2 16.2-9.6 20.7-11.3 4.4-1.8-17.3 17.3-1.2 56.1l-11.5 4.9c-9.4 4.1-8.7-39.2-8-49.7z"
+			></path>
+			<path
+				id="<Path>"
+				fill-rule="evenodd"
+				class="s1"
+				d="m63.5 100.6c0.3 2.2 1.6 10.4 3.8 15.3 2.7 5.6 10.2 8.7 10.2 8.7 0 0-6.5 6.8-12.2 9-1.8-9.4-2-23.6-1.8-33z"
+			></path>
+			<path
+				id="<Path>"
+				fill-rule="evenodd"
+				class="s2"
+				d="m61.1 126.9c-7.6 8.3 3.6 34.2 15.8 32.3 29.7-4.9 82.4-20.5 106.7-36.5 12.6-8.3 5-36.1-8-41.4-12.7-5.2-101.3 31.2-114.5 45.6z"
+			></path>
+			<path
+				id="<Path>"
+				fill-rule="evenodd"
+				class="s1"
+				d="m189.9 110.9c-27.3 15.9-85.1 35.3-110.3 36.4-8.1 0.4-15.1-9.4-18.4-20.5q0 0-0.1 0.1c-7.6 8.3 3.6 34.2 15.8 32.3 29.7-4.9 82.4-20.5 106.7-36.5 3.8-2.5 5.8-6.9 6.3-11.8z"
+			></path>
+			<path
+				id="<Path>"
+				fill-rule="evenodd"
+				class="s2"
+				d="m25.1 110.6c9.2 0 16.7 7.8 16.7 17.3 0 9.6-7.5 17.3-16.7 17.3-9.3 0-16.8-7.7-16.8-17.3 0-9.5 7.5-17.3 16.8-17.3z"
+			></path>
+			<path
+				id="<Path>"
+				fill-rule="evenodd"
+				class="s1"
+				d="m11.7 117.5c-2.1 2.9-3.4 6.5-3.4 10.4 0 9.6 7.5 17.3 16.8 17.3 8.1 0 14.8-6 16.4-13.9-3.1 4.2-7.9 6.9-13.4 6.9-9.2 0-16.7-7.8-16.7-17.3q0-1.7 0.3-3.4z"
+			></path>
+			<path
+				id="<Path>"
+				fill-rule="evenodd"
+				class="s1"
+				d="m60.5 144.3c2.6 3.1 7.7 7.5 15.5 8.7 10.4 1.7 68-13.5 81.6-17.2-26.1 10.8-59.3 19.8-80.7 23.4-6.8 1.1-13.3-6.5-16.4-14.9z"
+			></path>
+		</g>
+	</g>
+</svg>
+
+<style>
+	
+	:root {
+	--width: 51px;
+
+	--es_top: 113px;
+	--es_left: 130px;
+
+	--en_top: 113px;
+	--en_left: 140px;
+}
+.svg-christmas-hat-es, .svg-christmas-hat-en {
+	position: absolute;
+	width: var(--width);
+}
+
+.svg-christmas-hat-es {
+	top: var(--es_top);
+	left: var(--es_left);
+}
+
+.svg-christmas-hat-en {
+	top: var(--en_top);
+	left: var(--en_left);
+}
+
+@media (max-width: 230px) {
+	.svg-christmas-hat-es, .svg-christmas-hat-en {
+		display: none;
+	}
+}
+@media (max-width: 640px) {
+	:root {
+		--width: 35px;
+		--es_top: 73px;
+		--es_left: 115px;
+
+		--en_top: 73px;
+		--en_left: 123px;
+	}
+}
+
+@media (min-width: 641px) and (max-width: 767px) {
+	:root {
+		--es_top: 65px;
+		--es_left: 145px;
+
+		--en_top: 65px;
+		--en_left: 154px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	:root {
+		--es_top: 95px;
+		--es_left: 170px;
+
+		--en_top: 95px;
+		--en_left: 178px;
+	}
+}
+</style>

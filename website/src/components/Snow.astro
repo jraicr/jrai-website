@@ -1,0 +1,115 @@
+---
+import Particles from "astro-particles";
+import type { ISourceOptions } from "tsparticles-engine";
+
+const options: ISourceOptions = {
+    // background: {
+    //     color: "#000000",
+    // },
+    particles: {
+        color: {
+            value: "#fff",
+        },
+        move: {
+            direction: "bottom",
+            enable: true,
+            outModes: "out",
+            speed: 2,
+            bounce: false,
+            attract: {
+                enable: false,
+                rotateX: 600,
+                rotateY: 1200,
+            },
+        },
+        number: {
+            density: {
+                enable: true,
+                area: 2000,
+            },
+            value: 100,
+        },
+        opacity: {
+            value: 0.15,
+        },
+        shape: {
+            type: "circle",
+        },
+        size: {
+            value: 8,
+        },
+        wobble: {
+            enable: true,
+            distance: 10,
+            speed: 10,
+        },
+        zIndex: {
+            value: {
+                min: 0,
+                max: 100,
+            },
+        },
+    },
+    interactivity: {
+        detect_on: "window",
+        events: {
+            onclick: {
+                enable: true,
+                mode: "repulse",
+            },
+            resize: true,
+        },
+        modes: {
+            repulse: {
+                distance: 150,
+                duration: 0.4,
+            },
+            push: {
+                particles_nb: 4,
+            },
+            remove: {
+                particles_nb: 2,
+            },
+        },
+    },
+    retina_detect: true,
+};
+---
+
+<div class="snow-container">
+    <Particles
+        id="tsparticles"
+        options={options}
+        init="particlesInit"
+    />
+</div>
+
+<script>
+    import {
+        type Container,
+        type Engine,
+        tsParticles,
+    } from "tsparticles-engine";
+    import { loadFull } from "tsparticles";
+
+    // the function name is the parameter passed to the init attribute
+    // required
+    // add the function to window is mandatory, it will be searched there
+    window.particlesInit = async function (engine: Engine) {
+        await loadFull(engine);
+    };
+
+    // the function name is the parameter passed to the loaded attribute
+    // optional
+    // add the function to window is mandatory, it will be searched there
+    // window.particlesLoaded = function (container: Container) {
+    // };
+</script>
+
+<style>
+    .snow-container {
+        display: block;
+        width: 0 !important;
+        height: 0 !important;
+    }
+</style>

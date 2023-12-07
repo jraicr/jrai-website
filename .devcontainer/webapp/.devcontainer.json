@@ -1,10 +1,10 @@
 
 {
-    "name": "website",
+    "name": "webapp",
     "dockerComposeFile": [
         "../docker-compose.yml"
     ],
-    "service": "website",
+    "service": "webapp",
     "shutdownAction": "none",
     // Open the sub-folder with the source code
     "workspaceFolder": "/app"
