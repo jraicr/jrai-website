@@ -5,9 +5,11 @@ import About from "@/components/base/About.astro";
 import Experience from "@/components/base/Experience.astro";
 import Projects from "@/components/base/Projects.astro";
 import Footer from "@/components/base/Footer.astro";
+
+const CHRISTMAS_ACTIVATED = false
 ---
 
-<BaseLayout title="J. Rai">
+<BaseLayout title="J. Rai" christmasActivated={CHRISTMAS_ACTIVATED} >
     <div class="main-flex-container">
         <Header
             title="J. Rai"
@@ -16,6 +18,7 @@ import Footer from "@/components/base/Footer.astro";
             githubUser="jraicr"
             twitterUser="JRaiDev"
             linkedinUser="jraidev"
+            christmasActivated={CHRISTMAS_ACTIVATED}
         />
 
         <main id="content-container" class="content-wrapper">

@@ -21,9 +21,10 @@ interface Props {
     githubUser: string;
     twitterUser: string;
     linkedinUser: string;
+    christmasActivated: boolean;
 }
 
-const { title, subtitle, tagline, githubUser, twitterUser, linkedinUser } =
+const { title, subtitle, tagline, githubUser, twitterUser, linkedinUser, christmasActivated } =
     Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
@@ -43,7 +44,7 @@ const translatePath = useTranslatedPath(lang);
             />
             <h1>
                 <a href={translatePath("/")}>
-                    <ChristmasHat />
+                    {christmasActivated && <ChristmasHat />}
                     {t("header.iam")}&nbsp;<span class="highlight">
                         {title}
                     </span>
