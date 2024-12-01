@@ -45,7 +45,7 @@ const translatePath = useTranslatedPath(lang);
             <h1>
                 <a href={translatePath("/")}>
                     {christmasActivated && <ChristmasHat />}
-                    {t("header.iam")}&nbsp;<span class="highlight">
+                    {t("header.iam")}<span class="highlight name-title">
                         {title}
                     </span>
                 </a>
@@ -82,6 +82,7 @@ const translatePath = useTranslatedPath(lang);
         line-height: 1.75rem;
         letter-spacing: -0.025em;
         margin-top: 0.75rem;
+        text-wrap: pretty;
     }
 
     .tagline {
