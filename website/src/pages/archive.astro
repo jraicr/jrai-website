@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ArchiveEntry from "@/components/ArchiveEntry.astro";
+import {CHRISTMAS_ACTIVATED} from "@/layouts/config.ts";
 
 import {
     getLangFromUrl,
@@ -19,9 +20,9 @@ const archives = await getCollection("archives", ({ id }) => {
 });
 ---
 
-<BaseLayout title="Archivo | J. Rai">
+<BaseLayout title="Archivo | J. Rai" christmasActivated={CHRISTMAS_ACTIVATED}>
     <div class="archive-container" transition:animate="slide" transition:name="archive">
-        <a href={translatePath("/")} class="archive-back-link">
+        <a href={translatePath("/#projects-full-link")} class="archive-back-link">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
@@ -146,7 +147,9 @@ const archives = await getCollection("archives", ({ id }) => {
 
     .archive-table-head {
         -webkit-backdrop-filter: blur(8px);
-        backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px); 
+        background-color: rgba(23, 14, 37, .85);        
+        border-color: rgba(216, 203, 225, 0.1);
 
         position: sticky;
         top: 0;
@@ -158,11 +161,11 @@ const archives = await getCollection("archives", ({ id }) => {
         padding-right: 1.5rem;
 
         border-bottom-width: 1px;
-        background-color: hsla(263, 45%, 10%, 0.75);
-        border-color: rgba(216, 203, 225, 0.1);
+        /* background-color: hsla(263, 45%, 10%, 0.75); */
+
     }
 
-    .archive-entry-head {
+    .archive-entry-head {        
         color: var(--main-headline);
         font-weight: 600;
         font-size: 0.875rem;
@@ -170,6 +173,7 @@ const archives = await getCollection("archives", ({ id }) => {
         padding-right: 2rem;
         padding-top: 1rem;
         padding-bottom: 1rem;
+        z-index: 10;
     }
 
     .archive-footer {

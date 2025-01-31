@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ArchiveEntry from "@/components/ArchiveEntry.astro";
+import {CHRISTMAS_ACTIVATED} from "@/layouts/config.ts";
 
 import {
     getLangFromUrl,
@@ -19,7 +20,7 @@ const archives = await getCollection("archives", ({ id }) => {
 });
 ---
 
-<BaseLayout title="Archive | J. Rai">
+<BaseLayout title="Archive | J. Rai" christmasActivated={CHRISTMAS_ACTIVATED}>
     <div class="archive-container" transition:animate="slide" transition:name="archive">
         <a href={translatePath("/")} class="archive-back-link">
             <svg

@@ -12,10 +12,10 @@
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx,.astro,.mjs,.cjs . --fix"
   },
   "dependencies": {
-    "@astrojs/check": "^0.2.1",
-    "@astrojs/sitemap": "^3.0.3",
-    "@astrojs/vue": "^3.0.4",
-    "astro": "^3.5.0",
+    "@astrojs/check": "^0.7.0",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/vue": "^4.5.0",
+    "astro": "^4.10.3",
     "astro-particles": "^2.10.0",
     "tsparticles": "^2.12.0",
     "typescript": "^5.2.2",

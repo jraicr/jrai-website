@@ -1,124 +1,107 @@
 ---
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "@/i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 interface Props {
-    partialText: string;
-    lastWord: string;
-    href: string;
-    ariaLabel: string;
+  partialText: string;
+  lastWord: string;
+  href: string;
+  ariaLabel: string;
+  id: string;
 }
 
-const { partialText, lastWord, href, ariaLabel } = Astro.props;
+const { partialText, lastWord, href, ariaLabel, id } = Astro.props;
 ---
 
-<div>
-    <a class="view-full-link" href={href} aria-label={ariaLabel}>
-        <span>
-            <span class="partial-text">{partialText}&nbsp;</span>
+<div id={id}>
+  <a class="view-full-link" href={href} aria-label={ariaLabel}>
+    <span>
+      <span class="full-words-link">
+        <span class="partial-text">{partialText}</span>
 
-            <span class="last-word-container">
-                <span class="last-word">{lastWord}</span>
-
-                <svg
-                    class="arrow"
-                    width="24"
-                    height="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"
-                    >
-                    </path>
-                </svg>
-            </span>
+        <span class="last-word-container">
+          <span class="last-word">{lastWord}</span>
         </span>
-    </a>
+      </span>
+
+      <svg
+        class="arrow"
+        width="24"
+        height="24"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"
+        >
+        </path>
+      </svg>
+    </span>
+  </a>
 </div>
 
 <style>
+  .view-full-link {
+    line-height: 1.85;
+    padding-top: 0.3rem;
+    font-weight: 600;
+    align-items: center;
+    display: inline-flex;
+  }
 
-    .view-full-link {
-        line-height: 1.85;
-        padding-top: 0.3rem;
-        font-weight: 600;
-        align-items: center;
-        display: inline-flex;
-    }
+  .full-words-link {
+    padding-bottom: 1px;
+    transition-property:
+      color,
+      background-color,
+      border-color,
+      text-decoration-color,
+      fill,
+      stroke,
+      opacity,
+      box-shadow,
+      transform,
+      filter,
+      backdrop-filter,
+      -webkit-backdrop-filter;
 
-    .partial-text {
-        padding-bottom: 1px;
-        transition-property:
-            color,
-            background-color,
-            border-color,
-            text-decoration-color,
-            fill,
-            stroke,
-            opacity,
-            box-shadow,
-            transform,
-            filter,
-            backdrop-filter,
-            -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.15s;
+    border-color: transparent;
+    border-bottom-width: 1px;
+  }
 
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 0.15s;
-        border-color: transparent;
-        border-bottom-width: 1px;
-    }
-    
-    .last-word-container {
-        white-space: nowrap;
-    }
 
-    .last-word {
-        padding-bottom: 1px;
-        transition-property:
-            color,
-            background-color,
-            border-color,
-            text-decoration-color,
-            fill,
-            stroke,
-            opacity,
-            box-shadow,
-            transform,
-            filter,
-            backdrop-filter,
-            -webkit-backdrop-filter;
+  .last-word-container {
+    white-space: nowrap;
+  }
 
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 0.15s;
-        border-color: transparent;
-        border-bottom-width: 1px;
-    }
+  .arrow {
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.15s;
+    transform: translate(0, -1px) rotate(0) skewX(0) skewY(0) scaleX(0.75)
+      scaleY(0.75);
 
-    .arrow {
-        transition-property: transform;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 0.15s;
-        transform: translate(0, -1px) rotate(0) skewX(0) skewY(0) scaleX(0.75)
-            scaleY(0.75);
+    flex-shrink: 0;
 
-        flex-shrink: 0;
-
-        display: inline-block;
-        margin-left: 0.25rem;
-        vertical-align: middle;
-    }
-
-    .view-full-link:hover .partial-text,
-    .view-full-link:hover .last-word {
-        border-color: var(--hover-link-color);
-    }
-
-    .view-full-link:hover .arrow {
-        transform: translate(0.5rem, -1px) rotate(0) skewX(0) skewY(0)
-            scaleX(0.75) scaleY(0.75);
-    }
+    display: inline-block;
+    margin-left: 0.25rem;
+    vertical-align: middle;
+  }
+  
+  .view-full-link:hover .full-words-link {
+    border-color: var(--hover-link-color);
+  }
+  .view-full-link:hover .arrow {
+    transform: translate(0.5rem, -1px) rotate(0) skewX(0) skewY(0) scaleX(0.75)
+      scaleY(0.75);
+  }
 </style>

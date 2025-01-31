@@ -1,0 +1,1 @@
+export const CHRISTMAS_ACTIVATED = false
